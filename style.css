@@ -290,14 +290,31 @@ footer .fin{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;f
 @media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
 
 /* 首页改版（2026-11-11 大进化第三轮）：本页目录条、分组小标题、锚点偏移修正 */
-.hero .scrollcue{display:inline-block;margin-top:34px;font-size:11px;letter-spacing:.5em;text-indent:.5em;color:var(--ink2);text-decoration:none;border-bottom:1px solid var(--hair2);padding-bottom:6px}
-.hero .scrollcue:hover{color:var(--red)}
-.pagenav{display:flex;flex-wrap:wrap;gap:8px 26px;align-items:baseline;justify-content:center;border-bottom:1px solid var(--ink);padding:24px 4px 20px}
-.pagenav .pn-t{font-size:11px;letter-spacing:.4em;color:var(--red)}
-.pagenav a{font-family:var(--serif);font-size:14.5px;letter-spacing:.14em;text-decoration:none;color:var(--ink2)}
-.pagenav a:hover{color:var(--red)}
 .serve a .sv::after{content:" \2192";color:var(--red);font-size:15px}
 .serve a:hover .sv::after{color:var(--gold2)}
-.ov-group{margin:16px 2px 2px;font-family:var(--serif);font-weight:900;font-size:14px;letter-spacing:.24em;color:var(--ink)}
-.ov-group::before{content:"";display:inline-block;width:8px;height:8px;background:var(--red);margin-right:9px}
-@media(max-width:560px){.ov-row{flex-direction:column;gap:2px}.ov-row .k{min-width:0}.pagenav{justify-content:flex-start;gap:8px 20px}}
+
+/* 定版首屏（2026-11-11 落地）：敬意句 / 分节头 / 痛点卡 / 理念引言 / 老师卡 */
+.humble{margin-top:26px}
+.humble span{display:inline-block;background:rgba(245,240,228,.9);color:#33302a;padding:10px 20px;font-size:14px;font-weight:600;letter-spacing:.16em;border:1px solid rgba(168,133,47,.5)}
+.sec{text-align:center;margin:40px 0 22px}
+.sec .orn{display:flex;align-items:center;justify-content:center;gap:12px}
+.sec .orn i{display:block;height:1px;width:92px;background:var(--gold)}
+.sec .orn em{display:block;width:9px;height:9px;background:var(--red);transform:rotate(45deg)}
+.sec h2{font-family:var(--serif);font-size:26px;font-weight:700;letter-spacing:.14em;margin-top:16px}
+.pain{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:8px 0 6px}
+.pain .pc{background:var(--paper2);border:1px solid var(--hair);border-top:3px solid var(--red);padding:22px 20px}
+.pain .pc h3{font-family:var(--serif);font-size:19px;letter-spacing:.04em;margin-bottom:8px}
+.pain .pc p{color:var(--ink2);font-size:14.5px;line-height:1.85}
+.creed{text-align:center;padding:36px 6% 6px}
+.creed .q{font-family:var(--serif);font-size:clamp(20px,3vw,27px);font-weight:700;line-height:1.7;letter-spacing:.04em}
+.creed .m{color:var(--ink2);margin-top:16px;line-height:2;font-size:15px}
+.tcard{display:grid;grid-template-columns:240px 1fr;gap:30px;background:var(--paper2);border:1px solid var(--hair);padding:30px;margin-bottom:26px}
+.tcard .frame{width:240px}
+.tcard .frame img{width:100%;display:block}
+.tcard .figcap{text-align:right;color:var(--faint);font-size:12.5px;margin-top:8px;letter-spacing:.12em}
+.tcard h2{font-family:var(--serif);font-size:30px;letter-spacing:.05em}
+.tcard h2 .en{font-size:14px;color:var(--red);letter-spacing:.3em;margin-left:10px}
+.tcard .say{font-family:var(--serif);font-size:17px;line-height:1.8;margin:12px 0 16px;color:var(--ink)}
+.tcard .fld{margin-bottom:12px;line-height:1.85;font-size:15px;color:var(--ink)}
+.tcard .fld b{color:var(--red);font-family:var(--serif);letter-spacing:.08em}
+@media(max-width:760px){.pain{grid-template-columns:1fr}.tcard{grid-template-columns:1fr}.tcard .frame{margin:0 auto}}
