@@ -308,13 +308,17 @@ footer .fin{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;f
 .creed{text-align:center;padding:36px 6% 6px}
 .creed .q{font-family:var(--serif);font-size:clamp(20px,3vw,27px);font-weight:700;line-height:1.7;letter-spacing:.04em}
 .creed .m{color:var(--ink2);margin-top:16px;line-height:2;font-size:15px}
-.tcard{display:grid;grid-template-columns:240px 1fr;gap:30px;background:var(--paper2);border:1px solid var(--hair);padding:30px;margin-bottom:26px}
-.tcard .frame{width:240px}
-.tcard .frame img{width:100%;display:block}
-.tcard .figcap{text-align:right;color:var(--faint);font-size:12.5px;margin-top:8px;letter-spacing:.12em}
-.tcard h2{font-family:var(--serif);font-size:30px;letter-spacing:.05em}
+.tcard{display:grid;grid-template-columns:240px 1fr;gap:clamp(28px,4vw,54px);padding:40px 0 44px;border-top:1px solid var(--hair2)}
+.tcard.flip{grid-template-columns:1fr 240px}
+.tcard.flip .tphoto{order:2}
+.tcard.flip .tbody{order:1}
+.tcard .tphoto{text-align:center}
+.tcard .frame{width:240px;margin:0 auto}
+.tcard .ptag{display:inline-block;margin-top:14px;background:var(--red);color:#f5f0e4;font-size:12.5px;letter-spacing:.34em;text-indent:.34em;padding:6px 16px 6px 18px;font-family:var(--serif)}
+.tcard h2{font-family:var(--serif);font-size:34px;letter-spacing:.05em;padding-bottom:14px;border-bottom:2px solid var(--gold)}
 .tcard h2 .en{font-size:14px;color:var(--red);letter-spacing:.3em;margin-left:10px}
-.tcard .say{font-family:var(--serif);font-size:17px;line-height:1.8;margin:12px 0 16px;color:var(--ink)}
-.tcard .fld{margin-bottom:12px;line-height:1.85;font-size:15px;color:var(--ink)}
-.tcard .fld b{color:var(--red);font-family:var(--serif);letter-spacing:.08em}
-@media(max-width:760px){.pain{grid-template-columns:1fr}.tcard{grid-template-columns:1fr}.tcard .frame{margin:0 auto}}
+.tcard .say{font-family:var(--serif);font-size:18.5px;line-height:1.85;margin:18px 0 8px;color:var(--ink)}
+.tcard .fld{display:grid;grid-template-columns:92px 1fr;gap:6px 14px;padding:13px 0 4px;border-top:1px dashed var(--hair);margin-top:10px}
+.tcard .fld .fl{font-family:var(--serif);color:var(--red);letter-spacing:.1em;font-size:14px;padding-top:3px;white-space:nowrap}
+.tcard .fld p{line-height:1.9;font-size:15px;color:var(--ink)}
+@media(max-width:760px){.pain{grid-template-columns:1fr}.tcard{grid-template-columns:1fr}.tcard.flip{grid-template-columns:1fr}.tcard.flip .tphoto{order:0}.tcard.flip .tbody{order:1}.tcard .fld{grid-template-columns:1fr;gap:2px}}
