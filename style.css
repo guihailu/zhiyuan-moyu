@@ -322,3 +322,9 @@ footer .fin{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;f
 .tcard .fld .fl{font-family:var(--serif);color:var(--red);letter-spacing:.1em;font-size:14px;padding-top:3px;white-space:nowrap}
 .tcard .fld p{line-height:1.9;font-size:15px;color:var(--ink)}
 @media(max-width:760px){.pain{grid-template-columns:1fr}.tcard{grid-template-columns:1fr}.tcard.flip{grid-template-columns:1fr}.tcard.flip .tphoto{order:0}.tcard.flip .tbody{order:1}.tcard .fld{grid-template-columns:1fr;gap:2px}}
+
+/* 漏斗交棒（2026-11-12 落地）：首屏桥接句 + 第一句脚手架 */
+.bridge{text-align:center;margin:16px 0 0;font-size:13.5px;line-height:2}
+.bridge span{background:rgba(245,240,228,.78);padding:7px 16px;border-radius:999px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.bridge a{color:var(--red);text-decoration:underline;text-underline-offset:3px}
+.scaf{margin-top:10px;font-size:14px;color:var(--ink2)}
