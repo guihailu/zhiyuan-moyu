@@ -6,8 +6,134 @@
 <title>志远行空 · 陌语 Eunoia 官方站</title>
 <meta name="description" content="志远行空与陌语 Eunoia 的官方站：两个人是谁、各自能做什么、有哪些项目、办事每一步怎么走，都写在这里。">
 <link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&family=Noto+Sans+SC:wght@400;500;700&display=swap">
+<style>
+/* ===== 归海概念十四版 · 已落地（含漏斗桥接句） ===== */
+@font-face{font-family:"SealSutra";src:url(sealsutra-subset.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
+.sealbg{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none;writing-mode:vertical-rl;font-family:"FZShouJinShu-S","华文篆书","STKaiti","Kaiti SC","楷体",serif;font-size:25px;line-height:2.4;letter-spacing:.35em;color:#1d1b16;opacity:.075;padding:18px}
+body>*{position:relative;z-index:1}
+.mast{z-index:60}
+html.night .sealbg{color:#d9a441;opacity:.08}
+/* 概念版五 2026-11-12：整页一张长卷底色——纸色一路洇成海色，不再分段上色。
+   各区卡片改半透明纸 veil 让底色透出来；双路带与烛光带只在底色上加深/加蓝。 */
+body{position:relative}
+.onepaint{position:absolute;inset:0;z-index:0;pointer-events:none}
+.onepaint img{width:100%;height:100%;object-fit:fill;display:block}
+html.night .onepaint img{filter:brightness(.78) saturate(.9)}
+.hero{border-bottom:none;min-height:94vh}
+.hero .inner{z-index:2}
+.rays{position:absolute;inset:0;z-index:1;pointer-events:none;background:conic-gradient(from 208deg at 88% -4%,rgba(255,228,150,.34) 0deg,rgba(255,228,150,0) 55deg),repeating-linear-gradient(128deg,rgba(255,232,170,.17) 0 54px,rgba(255,232,170,0) 54px 150px);-webkit-mask-image:radial-gradient(ellipse 95% 85% at 88% 0%,#000 30%,transparent 80%);mask-image:radial-gradient(ellipse 95% 85% at 88% 0%,#000 30%,transparent 80%);filter:blur(5px);mix-blend-mode:screen;opacity:.9;transition:opacity 1.4s;animation:shimmer 9s ease-in-out infinite alternate}
+@keyframes shimmer{from{opacity:.7}to{opacity:.95}}
+.dust{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden;transition:opacity 1.4s}
+.dust i{position:absolute;top:-12px;border-radius:50%;background:radial-gradient(circle,#fff8dd,#ffd968 60%,rgba(255,217,104,0));opacity:0;animation:fall linear infinite}
+@keyframes fall{0%{transform:translate3d(0,-2vh,0);opacity:0}12%{opacity:.9}88%{opacity:.55}100%{transform:translate3d(-3.5vw,82vh,0);opacity:0}}
+html.night .rays{opacity:.75;background:conic-gradient(from 208deg at 88% -4%,rgba(205,224,248,.26) 0deg,rgba(205,224,248,0) 55deg),repeating-linear-gradient(128deg,rgba(205,224,248,.12) 0 54px,rgba(205,224,248,0) 54px 150px)}
+html.night .dust i{top:auto;bottom:-12px;background:radial-gradient(circle,#fff6c8,#e8c860 55%,rgba(232,200,96,0));animation-name:rise}
+@keyframes rise{0%{transform:translate3d(0,4vh,0);opacity:0}18%{opacity:.85}55%{opacity:.35}82%{opacity:.7}100%{transform:translate3d(-3vw,-72vh,0);opacity:0}}
+.stars{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden;opacity:0;transition:opacity 1.6s}
+html.night .stars{opacity:1}
+.stars i{position:absolute;border-radius:50%;background:#fff;box-shadow:0 0 6px rgba(255,255,255,.8);animation:twinkle 3.4s ease-in-out infinite}
+@keyframes twinkle{0%,100%{opacity:.15}50%{opacity:.95}}
+.moonglow{position:absolute;right:1%;top:-70px;width:300px;height:300px;z-index:1;pointer-events:none;background:radial-gradient(circle,rgba(232,240,252,.6),rgba(232,240,252,.12) 42%,rgba(232,240,252,0) 68%);mix-blend-mode:screen;opacity:0;transition:opacity 1.6s}
+html.night .moonglow{opacity:1}
+.lightpour{position:fixed;inset:0;z-index:80;pointer-events:none;background:conic-gradient(from 208deg at 88% -4%,rgba(255,228,150,.5) 0deg,rgba(255,228,150,0) 55deg),repeating-linear-gradient(128deg,rgba(255,232,170,.28) 0 54px,rgba(255,232,170,0) 54px 150px);-webkit-mask-image:radial-gradient(ellipse 95% 85% at 88% 0%,#000 30%,transparent 80%);mask-image:radial-gradient(ellipse 95% 85% at 88% 0%,#000 30%,transparent 80%);filter:blur(6px);mix-blend-mode:screen;opacity:0}
+html.night .lightpour{background:conic-gradient(from 208deg at 88% -4%,rgba(205,224,248,.4) 0deg,rgba(205,224,248,0) 55deg),repeating-linear-gradient(128deg,rgba(205,224,248,.2) 0 54px,rgba(205,224,248,0) 54px 150px)}
+.lightpour.pour{animation:pour 1.5s ease-out forwards}
+@keyframes pour{0%{opacity:0}18%{opacity:.85}100%{opacity:0}}
+.themebtn{position:fixed;right:4.5%;top:80px;z-index:70;width:46px;height:46px;border:none;background:transparent;padding:0;font-size:23px;line-height:1;cursor:pointer;filter:drop-shadow(0 0 7px rgba(245,240,228,.9));transition:transform .25s}
+.themebtn:hover{transform:scale(1.12)}
+html.night .themebtn{filter:drop-shadow(0 0 8px rgba(8,18,32,.6))}
+html.night .hero h1{color:#f4ecd9;text-shadow:0 2px 18px rgba(0,0,0,.4)}
+html.night .hero .kick{color:#e8d9ae}
+html.night .hero .sub{color:#e9e2cf}
+html.night .hero .cta{border-color:#e8d9ae;color:#f4ecd9}
+html.night .hero .cta.ghost{background:rgba(13,30,48,.45)}
+html.night .hero .cta.solid{color:#fff}
+.tcard .tphoto{position:relative}
+.tcard .tphoto::before{content:"";position:absolute;left:50%;top:-36px;transform:translateX(-50%);width:330px;height:330px;border-radius:50%;background:radial-gradient(circle,rgba(217,164,65,.40) 0%,rgba(217,164,65,.13) 46%,rgba(217,164,65,0) 68%);z-index:0}
+.tcard .frame{position:relative;z-index:1;box-shadow:0 0 0 6px rgba(168,133,47,.20),0 16px 36px rgba(23,50,74,.28)}
+.tcard .ptag{position:relative;z-index:1;font-size:15.5px;padding:11px 24px 11px 30px;letter-spacing:.42em;background:linear-gradient(180deg,#b23a22,#8f2d1a);border:1px solid #d9a441;box-shadow:0 0 0 3px #f5f0e4,0 0 0 4px rgba(168,133,47,.8),0 10px 20px rgba(23,50,74,.30)}
+.lotusorn{text-align:center;margin:16px 0 -4px;position:relative;z-index:2}
+#overview .col{background:transparent;padding:24px 22px}
+.overview2{background:rgba(251,248,239,.88)}
+.pain .pc{background:rgba(251,248,239,.86)}
+.statement{background:rgba(251,248,239,.90)}
+/* 双路带：不再是黑板子——深河色、上下化入纸面 */
+.band-ink{border:none;background:transparent}
+.band-ink::before{display:none}
+.band-ink::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:linear-gradient(180deg,rgba(26,45,54,0) 0%,rgba(26,45,54,.25) 15%,rgba(26,45,54,.55) 30%,rgba(26,45,54,.8) 45%,rgba(26,45,54,.86) 58%,rgba(26,45,54,.8) 70%,rgba(38,66,80,.55) 82%,rgba(38,66,80,.25) 92%,rgba(38,66,80,0) 100%)}
+.band-ink .wrap{position:relative;z-index:1}
+.pband .bgimg{-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 10%,#000 92%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0,#000 10%,#000 92%,transparent 100%)}
+/* 概念六：烛光带已移出首页（落地时放陌语页），相关规则删除 */
+.seaband{width:100vw;margin-left:calc(50% - 50vw);margin-top:70px;line-height:0;position:relative;height:min(66vh,620px);overflow:hidden}
+ /* 接缝审计 2026-11-12：补底边羽化，原先只羽化顶边；底边由 88% 放到 82% 起羽，夜里页脚更暗、淡色浪花化得更开 */
+/* 接缝审计 2026-11-12 07:xx 轮：海画底边原先羽化到纸白、再以硬直线接深靛页脚（日夜同症）。
+   改在带底加一道与页脚同色的渐变罩，让海色直接洇进页脚色，不再经过纸白断层。 */
+.seaband::after{content:"";position:absolute;left:0;right:0;bottom:0;height:130px;background:linear-gradient(180deg,rgba(18,39,92,0),#12275c 82%);pointer-events:none}
+html.night .seaband::after{background:linear-gradient(180deg,rgba(10,26,62,0),#0a1a3e 82%)}
+.moonpath{position:absolute;left:58%;top:6%;bottom:16%;width:200px;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(226,236,250,0),rgba(226,236,250,.38) 45%,rgba(226,236,250,.10));-webkit-mask-image:linear-gradient(90deg,transparent,#000 30%,#000 70%,transparent);mask-image:linear-gradient(90deg,transparent,#000 30%,#000 70%,transparent);mix-blend-mode:screen;opacity:0;transition:opacity 1.6s}
+html.night .moonpath{opacity:1;animation:moonshimmer 7s ease-in-out infinite alternate}
+@keyframes moonshimmer{from{opacity:.75}to{opacity:1}}
+.seaband .dropwrap,.seaband .dropnote{z-index:1}
+.seaband .dropwrap{position:absolute;left:50%;transform:translateX(-50%);bottom:132px}
+.seaband .dropwrap img{width:200px;display:block;filter:drop-shadow(0 18px 22px rgba(4,22,44,.45))}
+.seaband .dropwrap::before{content:"";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:280px;height:280px;background:radial-gradient(circle,rgba(150,195,235,.14),rgba(150,195,235,0) 62%);z-index:-1;pointer-events:none}
+.seaband .dropwrap::after{content:"";position:absolute;left:50%;bottom:-8px;transform:translateX(-50%);width:300px;height:30px;background:radial-gradient(ellipse at center,rgba(190,220,245,.20),rgba(190,220,245,0) 68%);filter:blur(10px);z-index:-1;pointer-events:none}
+.seaband .dropnote{position:absolute;left:0;right:0;bottom:30px;text-align:center;color:#eef4fa;font-family:"Noto Serif SC",serif;letter-spacing:.18em;font-size:15px;line-height:2;padding:0 14px;text-shadow:0 1px 10px rgba(6,24,48,.65)}
+.seaband .dropnote .dropcap{display:block;font-size:12.5px;letter-spacing:.3em;color:#cfe3f2;margin-bottom:4px}
+footer{background:#12275c;margin-top:-2px;border-top:none} /* 接缝审计 2026-11-12：去活站样式的 3px 金顶线，海画底边与页脚之间不再有硬直线 */
+html.night footer{background:#0a1a3e}
+.pnote{color:#93a7bd;font-size:13px;text-align:center;padding:22px 0 26px;letter-spacing:.06em;line-height:2.1}
+
+/* 概念十一：文字可读性——字浮在画上必有光晕托底，夜里加倍；只动字，不动文案与版式结构 */
+.hero h1{text-shadow:0 0 22px rgba(245,240,228,.95),0 2px 6px rgba(245,240,228,.7)}
+.hero .kick{text-shadow:0 0 12px rgba(245,240,228,.95),0 0 3px rgba(245,240,228,.9)}
+.hero .sub{text-shadow:0 0 12px rgba(245,240,228,.95),0 0 3px rgba(245,240,228,.9)}
+.sec h2{text-shadow:0 0 16px rgba(245,240,228,.95),0 0 4px rgba(245,240,228,.9)}
+.creed .q{text-shadow:0 0 16px rgba(245,240,228,.95),0 0 4px rgba(245,240,228,.9)}
+.creed .m{color:#3f3c33;font-size:15.5px;line-height:2.1;text-shadow:0 0 12px rgba(245,240,228,.95),0 0 3px rgba(245,240,228,.9)}
+.creed{background:radial-gradient(ellipse 62% 85% at 50% 50%,rgba(245,240,228,.34),rgba(245,240,228,0) 75%)}
+.tcard h2,.tcard .say{text-shadow:0 0 14px rgba(245,240,228,.95),0 0 4px rgba(245,240,228,.9)}
+.tcard .fld p{font-size:15.5px;line-height:2;text-shadow:0 0 12px rgba(245,240,228,.95),0 0 3px rgba(245,240,228,.9)}
+.tcard .fld .fl{font-size:14.5px;text-shadow:0 0 12px rgba(245,240,228,.95),0 0 3px rgba(245,240,228,.9)}
+.tcard .tbody{background:radial-gradient(ellipse 92% 78% at 50% 50%,rgba(245,240,228,.36),rgba(245,240,228,0) 80%)}
+.divider .cap{color:#8a7a52;font-size:11.5px;text-shadow:0 0 10px rgba(245,240,228,.95)}
+#safety .ch-head h2{text-shadow:0 0 14px rgba(245,240,228,.95),0 0 4px rgba(245,240,228,.9)}
+#safety .ch-head .en{color:#8a6d1f;text-shadow:0 0 10px rgba(245,240,228,.9)}
+.band-ink .ch-head h2,.band-ink .paths h3,.band-ink .paths .pd,.band-ink .steps-h .sh{text-shadow:0 1px 14px rgba(8,22,32,.85),0 0 4px rgba(8,22,32,.6)}
+.seaband .dropnote{text-shadow:0 2px 16px rgba(4,18,36,.85),0 0 6px rgba(4,18,36,.6)}
+html.night .hero .sub,html.night .sec h2,html.night .creed .q,html.night .creed .m,html.night .tcard h2,html.night .tcard .say,html.night .tcard .fld p,html.night .tcard .fld .fl,html.night #safety .ch-head h2{text-shadow:0 0 20px rgba(245,240,228,1),0 0 6px rgba(245,240,228,.95)}
+html.night .creed{background:radial-gradient(ellipse 62% 85% at 50% 50%,rgba(245,240,228,.42),rgba(245,240,228,0) 75%)}
+html.night .tcard .tbody{background:radial-gradient(ellipse 92% 78% at 50% 50%,rgba(245,240,228,.44),rgba(245,240,228,0) 80%)}
+
+/* 概念十二：排版——齐行收边、字距透气、标题衡平；只动样式，不动文案 */
+body{text-rendering:optimizeLegibility}
+h1,h2,h3{text-wrap:balance}
+.hero h1{letter-spacing:.09em}
+.hero .sub{letter-spacing:.03em;text-wrap:pretty}
+.sec h2{font-size:27px;font-weight:900;letter-spacing:.16em}
+.creed .q{letter-spacing:.06em}
+.creed .m{letter-spacing:.05em}
+.tcard .say{font-size:19.5px;letter-spacing:.03em}
+.pain .pc p,.tcard .fld p,.path .pd,.statement p{text-align:justify;text-justify:inter-ideograph;text-wrap:pretty;letter-spacing:.015em}
+.pain .pc p{line-height:1.95}
+.path .pd{font-size:14.5px}
+.ch-head h2{letter-spacing:.14em}
+
+/* 十三版字体定版：甲方案（用户 2026-11-12 13:16 点选）+ 篆经文底 */
+:root{--serif:"Noto Serif SC","Songti SC","STSong",serif;--sans:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif}
+.sealbg{font-family:"SealSutra","Kaiti SC","KaiTi",serif}
+.bridge{text-align:center;margin:16px 0 0;font-size:13.5px;line-height:2}
+.bridge span{background:rgba(245,240,228,.78);padding:7px 16px;border-radius:999px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.bridge a{color:var(--red);text-decoration:underline;text-underline-offset:3px}
+</style>
 </head>
 <body>
+<div class="onepaint" aria-hidden="true"><img src="onepaint-2200.jpg" alt=""></div>
+<div class="lightpour" id="lightpour" aria-hidden="true"></div>
+<div class="sealbg" aria-hidden="true">观自在菩萨行深般若波罗蜜多时照见五蕴皆空度一切苦厄舍利子色不异空空不异色色即是空空即是色受想行识亦复如是舍利子是诸法空相不生不灭不垢不净不增不减是故空中无色无受想行识无眼耳鼻舌身意无色声香味触法无眼界乃至无意识界无无明亦无无明尽乃至无老死亦无老死尽无苦集灭道无智亦无得以无所得故菩提萨埵依般若波罗蜜多故心无挂碍无挂碍故无有恐怖远离颠倒梦想究竟涅槃三世诸佛依般若波罗蜜多故得阿耨多罗三藐三菩提故知般若波罗蜜多是大神咒是大明咒是无上咒是无等等咒能除一切苦真实不虚故说般若波罗蜜多咒即说咒曰揭谛揭谛波罗揭谛波罗僧揭谛菩提萨婆诃观自在菩萨行深般若波罗蜜多时照见五蕴皆空度一切苦厄舍利子色不异空空不异色色即是空空即是色受想行识亦复如是舍利子是诸法空相不生不灭不垢不净不增不减是故空中无色无受想行识无眼耳鼻舌身意无色声香味触法无眼界乃至无意识界无无明亦无无明尽乃至无老死亦无老死尽无苦集灭道无智亦无得以无所得故菩提萨埵依般若波罗蜜多故心无挂碍无挂碍故无有恐怖远离颠倒梦想究竟涅槃三世诸佛依般若波罗蜜多故得阿耨多罗三藐三菩提故知般若波罗蜜多是大神咒是大明咒是无上咒是无等等咒能除一切苦真实不虚故说般若波罗蜜多咒即说咒曰揭谛揭谛波罗揭谛波罗僧揭谛菩提萨婆诃观自在菩萨行深般若波罗蜜多时照见五蕴皆空度一切苦厄舍利子色不异空空不异色色即是空空即是色受想行识亦复如是舍利子是诸法空相不生不灭不垢不净不增不减是故空中无色无受想行识无眼耳鼻舌身意无色声香味触法无眼界乃至无意识界无无明亦无无明尽乃至无老死亦无老死尽无苦集灭道无智亦无得以无所得故菩提萨埵依般若波罗蜜多故心无挂碍无挂碍故无有恐怖远离颠倒梦想究竟涅槃三世诸佛依般若波罗蜜多故得阿耨多罗三藐三菩提故知般若波罗蜜多是大神咒是大明咒是无上咒是无等等咒能除一切苦真实不虚故说般若波罗蜜多咒即说咒曰揭谛揭谛波罗揭谛波罗僧揭谛菩提萨婆诃观自在菩萨行深般若波罗蜜多时照见五蕴皆空度一切苦厄舍利子色不异空空不异色色即是空空即是色受想行识亦复如是舍利子是诸法空相不生不灭不垢不净不增不减是故空中无色无受想行识无眼耳鼻舌身意无色声香味触法无眼界乃至无意识界无无明亦无无明尽乃至无老死亦无老死尽无苦集灭道无智亦无得以无所得故菩提萨埵依般若波罗蜜多故心无挂碍无挂碍故无有恐怖远离颠倒梦想究竟涅槃三世诸佛依般若波罗蜜多故得阿耨多罗三藐三菩提故知般若波罗蜜多是大神咒是大明咒是无上咒是无等等咒能除一切苦真实不虚故说般若波罗蜜多咒即说咒曰揭谛揭谛波罗揭谛波罗僧揭谛菩提萨婆诃</div>
 
 <header class="mast">
   <a class="brand" href="index.html"><span class="seal">志远<br>行空</span>志远行空 <b>×</b> 陌语 Eunoia</a>
@@ -18,7 +144,8 @@
 
 <!-- 主视觉（用户定版：法脉主标版，2026-11-11 落地） -->
 <div class="hero">
-  <img class="bgimg" src="hero-mountains.jpg" alt="水墨远山">
+<div class="rays" aria-hidden="true"></div><div class="dust" id="dust" aria-hidden="true"></div><div class="stars" id="stars" aria-hidden="true"></div><div class="moonglow" aria-hidden="true"></div>
+  
   <div class="inner">
     <div class="kick">志 远 行 空 · 陌 语 E U N O I A 官 方 站</div>
     <h1>一脉阴阳断困局<br>一脉金火涤灵台</h1>
@@ -47,7 +174,9 @@
     <p class="m">志远行空查事，先找出问题，再给处置<br>陌语问诊疗愈，唤醒灵魂记忆，重塑边界<br>两位老师能做什么、规矩是什么、怎么联系，都在下面</p>
   </div>
 
-  <div class="sec"><div class="orn"><i></i><em></em><i></i></div><h2>两位老师</h2></div>
+  
+<div class="lotusorn" aria-hidden="true"><svg width="132" height="36" viewBox="0 0 120 34"><g fill="none" stroke="#a8852f" stroke-width="1.6"><path d="M60 4 C66 12 66 20 60 28 C54 20 54 12 60 4Z"/><path d="M38 10 C48 12 54 18 56 27 C46 26 39 20 38 10Z"/><path d="M82 10 C72 12 66 18 64 27 C74 26 81 20 82 10Z"/><path d="M14 16 C24 15 32 20 36 26 C26 28 17 24 14 16Z"/><path d="M106 16 C96 15 88 20 84 26 C94 28 103 24 106 16Z"/></g></svg></div>
+<div class="sec"><div class="orn"><i></i><em></em><i></i></div><h2>两位老师</h2></div>
 
   <div class="tcard" id="teachers">
     <div class="tphoto">
@@ -82,26 +211,26 @@
       <div class="col">
         <div class="ch2"><h3>志远行空 · 传统业务</h3><span class="ce">WHAT HE DOES</span></div>
         <div class="ov-row"><span class="k">查事</span><span class="d">找出问题——先看清风险与优势，再决定怎么动</span></div>
-        <div class="ov-row"><span class="k">每日回卦</span><span class="d">每天几十例查询，逐一回复卦象结论与建议</span></div>
+        <div class="ov-row"><span class="k">每日回卦</span><span class="d">每天面对几十个人的查询和问询，逐一回复卦象结论与建议</span></div>
         <div class="ov-row"><span class="k">年命卦</span><span class="d">每年过年期间，集中为求问者看年命卦</span></div>
         <div class="ov-row"><span class="k">超度</span><span class="d">查事之后的处置手段之一</span></div>
-        <div class="ov-row"><span class="k">画符</span><span class="d">阴面调节的手段，处理因果业债等事项</span></div>
-        <div class="ov-row"><span class="k">风水祈福</span><span class="d">阴阳宅风水的查看与祈福</span></div>
-        <div class="ov-row"><span class="k">晶光静心</span><span class="d">云行远堂实操项目，约半小时，法阵吸走负能量</span></div>
+        <div class="ov-row"><span class="k">画符</span><span class="d">阴面调节的手段之一，靠符箓处理因果业债等事项</span></div>
+        <div class="ov-row"><span class="k">风水祈福</span><span class="d">查看阴阳宅风水，并做祈福</span></div>
+        <div class="ov-row"><span class="k">晶光静心</span><span class="d">云行远堂实操项目，约半小时，法阵的能量帮助吸走负能量</span></div>
         <div class="ov-row"><span class="k">直播讲学</span><span class="d">定期直播讲学与答疑</span></div>
         <div class="more"><a class="cta ghost" href="zhiyuan.html">逐条看说明</a></div>
       </div>
       <div class="col">
         <div class="ch2"><h3>陌语 · 天巫项目</h3><span class="ce">ALL PROJECTS</span></div>
-        <div class="ov-row"><span class="k">许愿蜡烛</span><span class="d">PLUS 版 150g 与体验版 75g，按人单独配置</span></div>
-        <div class="ov-row"><span class="k">能量阵蜡烛</span><span class="d">一套 3 支，配植物、水晶与能量符纸</span></div>
+        <div class="ov-row"><span class="k">许愿蜡烛</span><span class="d">PLUS 版 150g 与体验版约 75g，按人单独配置</span></div>
+        <div class="ov-row"><span class="k">能量阵蜡烛</span><span class="d">一套 3 支，配植物、水晶与能量符纸，一支一支点</span></div>
         <div class="ov-row"><span class="k">七灵根蜡烛</span><span class="d">一套 7 支，对应七灵根，限量、无法量产</span></div>
-        <div class="ov-row"><span class="k">佛眼智轮</span><span class="d">须提交审核，限时限量，等待期不可预计</span></div>
-        <div class="ov-row"><span class="k">能量净化</span><span class="d">分 9 大类，每次只做 5 个小分项，先问诊定项</span></div>
+        <div class="ov-row"><span class="k">佛眼智轮</span><span class="d">须有修行基础并提交审核，限时限量，等待期不可预计</span></div>
+        <div class="ov-row"><span class="k">能量净化</span><span class="d">分 9 大类，每次只做 5 个小分项，选错是风险，先问诊定项</span></div>
         <div class="ov-row"><span class="k">能量祈福</span><span class="d">加持作用，先说在前面：不保证百分百效果</span></div>
         <div class="ov-row"><span class="k">灵能疗愈</span><span class="d">深层剥离、重塑与边界重建</span></div>
         <div class="ov-row"><span class="k">脉轮探查</span><span class="d">看清当前能量状态，并给出具体方案</span></div>
-        <div class="ov-row"><span class="k">青少年探查</span><span class="d">家庭结构探查，7 岁起接，9 岁以上最顺畅</span></div>
+        <div class="ov-row"><span class="k">青少年探查</span><span class="d">家庭结构探查，7 周岁起接，9 岁及以上最顺畅</span></div>
         <div class="more"><a class="cta ghost" href="moyu.html">逐项看清单与边界</a></div>
       </div>
     </div>
@@ -133,16 +262,6 @@
   </div>
 </div>
 
-<!-- 烛光图带 -->
-<div class="imgband">
-  <img class="bgi" src="candles-mood.jpg" alt="天巫蜡烛与晶石">
-  <div class="cap">
-    <div class="q">「蜡烛是天巫体系中最重要、<br>也是最基础的媒介。」</div>
-    <div class="qs">陌 语 · 上 古 天 巫</div>
-    <a class="cta light" href="moyu.html">看蜡烛四线与全部项目</a>
-  </div>
-</div>
-
 <div class="wrap">
   <section class="ch rv" id="safety">
     <div class="ch-head"><span class="no">防骗</span><h2>防骗声明</h2><span class="en">BEWARE OF FAKES</span></div>
@@ -158,6 +277,12 @@
   </section>
 </div>
 
+<div class="seaband" aria-hidden="true">
+
+<div class="moonpath" aria-hidden="true"></div>
+<div class="dropwrap"><img src="xiaoyudi-cutout-v4.png" alt="吉祥物 · 小雨滴"></div>
+<div class="dropnote"><span class="dropcap">吉祥物 · 小雨滴：一滴乘舟归海的水</span>所有的水无论如何轮回，做何型态，皆源起于海，也必终于海</div>
+</div>
 <footer>
   <div class="wrap">
     <div class="fbrand"><span class="seal">志远<br>行空</span>志远行空 · 陌语 Eunoia 官方站</div>
@@ -167,9 +292,17 @@
   </div>
 </footer>
 
+<!-- 日夜钮须为 body 直接子元素：放在 .hero 里会被其 z-index:1 层叠上下文压住，滑到下方内容时点不到。 -->
+<button class="themebtn" id="themebtn" type="button" aria-label="切换白天与晚上">🌙</button>
+
 <script>
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})},{threshold:.06});
   document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+</script>
+<script>
+var d=document.getElementById('dust');for(var i=0;i<40;i++){var m=document.createElement('i');var s=2+Math.random()*4;m.style.width=s+'px';m.style.height=s+'px';m.style.left=(52+Math.random()*46)+'%';m.style.animationDuration=(7+Math.random()*8)+'s';m.style.animationDelay=(-Math.random()*10)+'s';d.appendChild(m)}
+var st=document.getElementById('stars');for(var j=0;j<70;j++){var g=document.createElement('i');var z=1+Math.random()*1.8;g.style.width=z+'px';g.style.height=z+'px';g.style.left=(Math.random()*100)+'%';g.style.top=(Math.random()*62)+'%';g.style.animationDuration=(2.4+Math.random()*3.4)+'s';g.style.animationDelay=(-Math.random()*4)+'s';st.appendChild(g);}
+var b=document.getElementById('themebtn');b.addEventListener('click',function(){var n=document.documentElement.classList.toggle('night');b.firstChild.textContent=n?'☀️':'🌙';var lp=document.getElementById('lightpour');lp.classList.remove('pour');void lp.offsetWidth;lp.classList.add('pour');});
 </script>
 </body>
 </html>
