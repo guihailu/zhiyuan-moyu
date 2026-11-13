@@ -5,7 +5,345 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>志远行空 · 陌语 Eunoia 官方站</title>
 <meta name="description" content="志远行空与陌语 Eunoia 的官方站：两个人是谁、各自能做什么、有哪些项目、办事每一步怎么走，都写在这里。">
-<link rel="stylesheet" href="style.css">
+<style>
+/* 官网成型版 · 共用样式（志远行空 × 陌语 Eunoia）
+   视觉系统 v2（2026-11-10 大进化首轮）：米白纸面＋墨黑大字＋朱砂印章＋金线
+   细颗粒纸纹、印章分隔器、印章章节号、墨色页脚收尾带、首屏带金线＋底部融纸
+   成型层：山水主视觉、墨色带、烛光图带、业务卡阵、事实栏、双路流程带 */
+:root{
+  --paper:#f5f0e4; --paper2:#fbf8ef; --ink:#1d1b16; --ink2:#57544a; --faint:#a29c8b;
+  --red:#a9341f; --red2:#c14a2e; --gold:#a8852f; --gold2:#c9a44a; --hair:#ddd4bf; --hair2:#c9bb9c;
+  --serif:"Noto Serif SC","Songti SC","STSong","SimSun",serif;
+  --sans:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{background-color:var(--paper);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E")}
+a{color:inherit}
+img{max-width:100%}
+::selection{background:var(--red);color:var(--paper)}
+.wrap{max-width:1160px;margin:0 auto;padding:0 30px}
+@media(max-width:640px){.wrap{padding:0 20px}}
+
+/* 页眉 */
+.mast{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;justify-content:space-between;align-items:center;
+  padding:13px 30px;background:rgba(245,240,228,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--hair)}
+.mast .brand{font-family:var(--serif);font-weight:700;font-size:15px;letter-spacing:.22em;text-decoration:none;display:flex;align-items:center;gap:12px}
+.mast .brand b{color:var(--red);font-weight:900}
+.seal{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;background:var(--red);color:#fff;
+  font-family:var(--serif);font-weight:900;font-size:11px;line-height:1.25;letter-spacing:.08em;text-align:center;padding:3px}
+.mast nav{display:flex;gap:24px;align-items:center;font-size:13px;letter-spacing:.16em}
+.mast nav a{text-decoration:none;color:var(--ink2)}
+.mast nav a:hover,.mast nav a.here{color:var(--red)}
+.mast nav a.navcta{border:1px solid var(--red);color:var(--red);padding:6px 14px}
+.mast nav a.navcta:hover{background:var(--red);color:var(--paper)}
+@media(max-width:900px){.mast nav a{display:none}.mast nav a.navcta{display:block}.mast{padding:11px 16px}}
+
+/* 竖排眉题 */
+.vert{writing-mode:vertical-rl;font-family:var(--serif);letter-spacing:.5em;color:var(--faint);font-size:12px}
+.vert b{color:var(--red);font-weight:700}
+
+/* 主视觉（首页） */
+.hero{position:relative;margin-top:57px;overflow:hidden;border-bottom:3px solid var(--gold)}
+.hero .bgimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 62%;
+  -webkit-mask-image:linear-gradient(180deg,#000 72%,transparent 99%);mask-image:linear-gradient(180deg,#000 72%,transparent 99%)}
+.hero .inner{position:relative;max-width:1160px;margin:0 auto;padding:120px 30px 92px;text-align:center}
+.hero .kick{font-size:11px;letter-spacing:.55em;text-indent:.55em;color:var(--red);margin-bottom:26px}
+.hero h1{font-family:var(--serif);font-weight:900;font-size:clamp(36px,6vw,64px);letter-spacing:.07em;line-height:1.35;text-shadow:0 1px 0 rgba(245,240,228,.6)}
+.hero .sub{margin:28px auto 0;max-width:680px;font-size:15.5px;line-height:2.15;color:var(--ink)}
+.hero .acts{margin-top:38px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.hero .channels{margin-top:44px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.chip{display:inline-flex;gap:9px;align-items:baseline;background:rgba(251,248,239,.88);border:1px solid var(--hair2);
+  padding:8px 16px;font-size:12.5px;letter-spacing:.1em;text-decoration:none}
+.chip b{font-family:var(--serif);letter-spacing:.06em}
+.chip .cl{font-size:10.5px;letter-spacing:.3em;color:var(--red)}
+@media(max-width:640px){.hero .inner{padding:84px 20px 64px}}
+
+/* 页头（内页，带山水带） */
+.pband{position:relative;margin-top:57px;overflow:hidden;border-bottom:3px solid var(--gold)}
+.pband .bgimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 68%;
+  -webkit-mask-image:linear-gradient(180deg,#000 72%,transparent 99%);mask-image:linear-gradient(180deg,#000 72%,transparent 99%)}
+.pband .inner{position:relative;max-width:1160px;margin:0 auto;padding:86px 30px 62px}
+.pband .kick{font-size:11px;letter-spacing:.5em;color:var(--red);margin-bottom:18px}
+.pband h1{font-family:var(--serif);font-weight:900;font-size:clamp(38px,6vw,62px);letter-spacing:.09em;line-height:1.25}
+.pband h1 .en{font-size:.34em;letter-spacing:.3em;color:var(--ink2);font-weight:600;margin-left:14px}
+.pband .lead{margin-top:20px;max-width:660px;font-size:15.5px;line-height:2.1;color:var(--ink)}
+.pband.center .inner{text-align:center}
+.pband.center .lead{margin-left:auto;margin-right:auto}
+@media(max-width:640px){.pband .inner{padding:64px 20px 46px}}
+
+/* 章节头与大分隔 */
+.ch-head{display:flex;align-items:baseline;gap:20px;border-bottom:1px solid var(--ink);padding-bottom:16px;margin-bottom:42px}
+.ch-head .no{font-family:var(--serif);font-size:13px;color:#fff;background:var(--red);font-weight:900;letter-spacing:.14em;
+  display:inline-flex;align-items:center;justify-content:center;min-width:54px;height:30px;padding:0 10px;align-self:center}
+.ch-head h2{font-family:var(--serif);font-weight:900;font-size:clamp(25px,3.4vw,34px);letter-spacing:.12em}
+.ch-head .en{margin-left:auto;font-size:11px;letter-spacing:.3em;color:var(--gold)}
+section.ch{padding:88px 0 6px}
+/* 大分隔：印章 ＋ 金线（v2，取代旧版巨字＋三线金纹） */
+.divider{margin:92px 0 0;text-align:center}
+.divider .dmark{display:flex;align-items:center;gap:20px}
+.divider .dmark::before,.divider .dmark::after{content:"";flex:1;height:1px;background:var(--gold);opacity:.65}
+.divider .dseal{display:inline-flex;align-items:center;justify-content:center;flex:none;width:52px;height:52px;
+  background:var(--red);color:#fff;font-family:var(--serif);font-weight:900;font-size:26px}
+.divider .cap{margin-top:16px;font-size:11px;letter-spacing:.5em;text-indent:.5em;color:var(--faint)}
+@media(max-width:640px){.divider .dseal{width:44px;height:44px;font-size:22px}.divider .dmark{gap:14px}}
+
+/* CTA */
+.cta{display:inline-block;background:var(--red);color:var(--paper);text-decoration:none;
+  font-size:13.5px;letter-spacing:.22em;padding:14px 30px;transition:.25s;border:1px solid var(--red)}
+.cta:hover{background:var(--ink);border-color:var(--ink)}
+.cta.ghost{background:rgba(251,248,239,.85);color:var(--ink);border:1px solid var(--ink)}
+.cta.ghost:hover{background:var(--ink);color:var(--paper)}
+.cta.light{background:transparent;color:var(--paper);border:1px solid var(--gold2)}
+.cta.light:hover{background:var(--gold);border-color:var(--gold);color:var(--ink)}
+
+/* 引文 */
+.quote{font-family:var(--serif);font-size:19px;line-height:1.9;letter-spacing:.04em;border-left:2px solid var(--red);padding-left:16px}
+.quote .src{display:block;margin-top:8px;font-family:var(--sans);font-size:12px;color:var(--faint);letter-spacing:.14em}
+
+/* 肖像框 4∶5（照片显示宽封顶 240px） */
+.frame{position:relative;aspect-ratio:4/5;max-width:240px;border:1px solid var(--ink);overflow:hidden;background:var(--paper2)}
+.frame::after{content:"";position:absolute;inset:9px;border:1px solid rgba(29,27,22,.3);pointer-events:none;z-index:2}
+.frame img{width:100%;height:100%;object-fit:cover;display:block}
+.figcap{display:flex;justify-content:space-between;gap:14px;max-width:240px;padding-top:11px;font-size:11.5px;letter-spacing:.16em;color:var(--faint)}
+.frame-art{position:relative;border:1px solid var(--hair2);overflow:hidden;background:var(--ink)}
+.frame-art img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* 人物布局：左图吸顶＋事实栏 */
+.person-layout{display:grid;grid-template-columns:264px 1fr;gap:clamp(30px,5vw,68px);align-items:start}
+.person-layout .side{position:sticky;top:96px}
+@media(max-width:860px){.person-layout{grid-template-columns:1fr}.person-layout .side{position:static}}
+.facts{margin-top:26px;border:1px solid var(--hair2);background:var(--paper2);max-width:264px}
+.facts .fr{display:flex;gap:14px;padding:11px 16px;border-bottom:1px solid var(--hair);font-size:13px;align-items:baseline}
+.facts .fr:last-child{border-bottom:none}
+.facts .fk{font-family:var(--serif);font-weight:700;letter-spacing:.14em;min-width:58px;color:var(--ink)}
+.facts .fv{color:var(--ink2);line-height:1.8}
+.byline{font-size:12px;letter-spacing:.18em;color:var(--faint);border-top:1px solid var(--red);padding-top:12px;margin-bottom:14px}
+.byline b{color:var(--ink);font-family:var(--serif);letter-spacing:.08em}
+.body-copy p{font-size:15px;line-height:2.15;color:var(--ink2);margin-bottom:18px;max-width:700px}
+.body-copy p b{color:var(--ink)}
+
+/* 分流三格 */
+.serve{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--ink);margin-top:26px;text-align:left;background:var(--paper2)}
+.serve a{display:block;padding:26px 24px 28px;text-decoration:none;border-right:1px solid var(--hair);transition:.25s}
+.serve a:last-child{border-right:none}
+.serve a:hover{background:var(--ink);color:var(--paper)}
+.serve a:hover .sk{color:#e0a08d}.serve a:hover .sd{color:#b9b2a0}
+.serve .sk{font-size:11px;letter-spacing:.34em;color:var(--red);margin-bottom:8px}
+.serve .sv{font-family:var(--serif);font-weight:700;font-size:19px;letter-spacing:.06em}
+.serve .sd{margin-top:8px;font-size:13px;line-height:1.95;color:var(--ink2)}
+@media(max-width:820px){.serve{grid-template-columns:1fr}.serve a{border-right:none;border-bottom:1px solid var(--hair)}}
+
+/* 双人区 */
+.duo{position:relative;display:grid;grid-template-columns:1fr 1fr;margin-top:10px}
+.duo::before{content:"";position:absolute;top:0;bottom:0;left:50%;width:1px;background:var(--hair2)}
+.person{padding:52px clamp(24px,4.5vw,58px) 8px}
+.person .tag{margin-top:28px;font-size:11.5px;letter-spacing:.42em;color:var(--red)}
+.person h2{font-family:var(--serif);font-weight:900;font-size:clamp(32px,3.6vw,42px);letter-spacing:.1em;margin-top:12px}
+.person h2 .en{font-size:14px;letter-spacing:.3em;color:var(--faint);margin-left:12px;font-weight:600}
+.person .posline{margin-top:14px;font-size:15.5px;line-height:1.95}
+.person .tags{margin-top:18px;display:flex;flex-wrap:wrap;gap:8px}
+.person .tags span{font-size:12px;letter-spacing:.12em;border:1px solid var(--hair2);background:var(--paper2);padding:5px 11px;color:var(--ink2)}
+.person .enter{margin-top:28px}
+@media(max-width:820px){.duo{grid-template-columns:1fr}.duo::before{display:none}.person.right{border-top:1px solid var(--ink);margin-top:40px}}
+
+/* 业务总览（首页双列） */
+.overview2{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--ink);background:var(--paper2)}
+.overview2 .col{padding:34px 36px 30px}
+.overview2 .col:first-child{border-right:1px solid var(--hair)}
+.overview2 .ch2{display:flex;align-items:baseline;gap:14px;border-bottom:1px solid var(--hair2);padding-bottom:14px;margin-bottom:10px}
+.overview2 .ch2 h3{font-family:var(--serif);font-weight:900;font-size:22px;letter-spacing:.1em}
+.overview2 .ch2 .ce{font-size:10.5px;letter-spacing:.3em;color:var(--faint);margin-left:auto}
+.ov-row{display:flex;gap:14px;padding:10px 2px;border-bottom:1px dashed var(--hair);align-items:baseline}
+.ov-row:last-of-type{border-bottom:none}
+.ov-row .k{font-family:var(--serif);font-weight:700;font-size:15.5px;min-width:104px;letter-spacing:.04em}
+.ov-row .d{font-size:13px;color:var(--ink2);line-height:1.85}
+.overview2 .more{margin-top:20px}
+@media(max-width:860px){.overview2{grid-template-columns:1fr}.overview2 .col:first-child{border-right:none;border-bottom:1px solid var(--hair)}}
+
+/* 墨色带（流程） */
+.band-ink{background:var(--ink);color:var(--paper);margin-top:110px;padding:84px 0 78px;position:relative}
+.band-ink::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:var(--gold)}
+.band-ink .ch-head{border-bottom-color:var(--gold)}
+.band-ink .ch-head h2{color:var(--paper)}
+.band-ink .ch-head .en{color:var(--gold2)}
+.paths{display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(30px,5vw,64px)}
+@media(max-width:860px){.paths{grid-template-columns:1fr}}
+.path h3{font-family:var(--serif);font-weight:900;font-size:21px;letter-spacing:.1em;color:var(--paper)}
+.path h3 .who{color:var(--gold2);font-size:13px;letter-spacing:.3em;margin-left:12px}
+.path .pd{margin-top:12px;font-size:14px;line-height:2;color:#cfc9b8}
+.steps-h{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.steps-h .sh{border:1px solid #4a463c;padding:9px 13px;font-size:13px;letter-spacing:.08em;color:var(--paper)}
+.steps-h .sh b{color:var(--gold2);font-family:var(--serif);margin-right:7px}
+.steps-h .sh.hot{border-color:var(--red2);color:#f0b9a6}
+.steps-h .sh.hot b{color:#f0b9a6}
+.path .pcta{margin-top:26px}
+
+/* 图带（烛光） */
+.imgband{position:relative;margin-top:110px;overflow:hidden;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}
+.imgband img.bgi{width:100%;height:430px;object-fit:cover;display:block}
+.imgband .cap{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:0 24px;
+  background:linear-gradient(90deg,rgba(20,18,14,.55),rgba(20,18,14,.15) 55%,rgba(20,18,14,.55))}
+.imgband .cap .q{font-family:var(--serif);font-weight:700;font-size:clamp(21px,3.4vw,32px);letter-spacing:.1em;line-height:1.7;color:#f7f2e3;max-width:760px}
+.imgband .cap .qs{margin-top:14px;font-size:12px;letter-spacing:.34em;color:var(--gold2)}
+.imgband .cap .cta{margin-top:28px}
+@media(max-width:640px){.imgband img.bgi{height:340px}}
+
+/* 业务卡阵（人物页） */
+.biz-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+@media(max-width:760px){.biz-grid{grid-template-columns:1fr}}
+.biz{background:var(--paper2);border:1px solid var(--hair2);padding:24px 26px 22px;position:relative;transition:.25s}
+.biz:hover{border-color:var(--ink);transform:translateY(-2px)}
+.biz::before{content:"";position:absolute;top:0;left:0;width:34px;height:3px;background:var(--red)}
+.biz .bk{font-family:var(--serif);font-weight:900;font-size:19px;letter-spacing:.07em}
+.biz .bd{margin-top:9px;font-size:13.5px;line-height:1.95;color:var(--ink2)}
+.biz .bd b{color:var(--ink)}
+
+/* 项目条目（陌语页） */
+.proj{border:1px solid var(--hair2);background:var(--paper2);padding:30px 32px 26px;margin-bottom:16px;position:relative}
+.proj::before{content:"";position:absolute;top:0;left:0;width:34px;height:3px;background:var(--red)}
+.proj .ph{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap}
+.proj .pno{font-family:var(--serif);font-size:13px;color:var(--red);letter-spacing:.2em}
+.proj h3{font-family:var(--serif);font-weight:900;font-size:clamp(21px,2.6vw,25px);letter-spacing:.08em}
+.proj .pos{margin-top:10px;font-size:15px;line-height:2;color:var(--ink);max-width:760px}
+.proj .fit{margin-top:12px}
+.proj .fit .fl{font-size:11px;letter-spacing:.4em;color:var(--faint);margin-bottom:8px}
+.proj .fit ul{list-style:none}
+.proj .fit li{font-size:14px;line-height:1.95;color:var(--ink2);padding-left:18px;position:relative}
+.proj .fit li::before{content:"";position:absolute;left:0;top:13px;width:7px;height:1px;background:var(--red)}
+.proj .rule-note{margin-top:14px;font-size:12.5px;letter-spacing:.12em;color:var(--red);border-top:1px dashed var(--hair2);padding-top:10px}
+@media(max-width:640px){.proj{padding:24px 20px 20px}}
+
+/* 边界清单 */
+.bounds{border:1px solid var(--hair2);background:var(--paper2);padding:10px 28px}
+.bounds li{list-style:none;font-size:14.5px;line-height:2.05;color:var(--ink2);padding:13px 2px 13px 20px;border-bottom:1px solid var(--hair);position:relative}
+.bounds li:last-child{border-bottom:none}
+.bounds li::before{content:"";position:absolute;left:0;top:24px;width:8px;height:1px;background:var(--red)}
+.bounds li b{color:var(--ink)}
+@media(max-width:640px){.bounds{padding:6px 18px}}
+
+/* 须知与声明 */
+.notice{border:1px solid var(--ink);background:var(--paper2);padding:24px 28px}
+.notice .t{font-family:var(--serif);font-weight:900;font-size:18px;letter-spacing:.1em;border-bottom:1px solid var(--red);padding-bottom:10px;margin-bottom:14px}
+.notice p,.notice li{font-size:14px;line-height:2;color:var(--ink2)}
+.notice ul{padding-left:20px}
+.statement{border:1px solid var(--ink);padding:30px 32px;background:var(--paper2);position:relative}
+.statement::before{content:"";position:absolute;top:0;left:0;bottom:0;width:4px;background:var(--red)}
+.statement .t{font-family:var(--serif);font-weight:900;font-size:19px;letter-spacing:.1em;color:var(--red);margin-bottom:12px}
+.statement p{font-size:14.5px;line-height:2.05;color:var(--ink)}
+.band-ink .statement{background:#26231d;border-color:var(--gold);color:var(--paper)}
+.band-ink .statement p{color:#e8e2d2}
+
+/* 步骤（查事页） */
+.ov6{display:grid;grid-template-columns:repeat(6,1fr);border:1px solid var(--ink);background:var(--paper2);margin-top:44px}
+.ov6 div{padding:18px 14px 20px;border-right:1px solid var(--hair)}
+.ov6 div:last-child{border-right:none}
+.ov6 .on{font-family:var(--serif);font-size:13px;color:var(--red);letter-spacing:.16em}
+.ov6 .ov{margin-top:7px;font-family:var(--serif);font-weight:700;font-size:16.5px;letter-spacing:.05em;line-height:1.6}
+.ov6 div.hot .ov{color:var(--red)}
+@media(max-width:900px){.ov6{grid-template-columns:repeat(3,1fr)}.ov6 div{border-bottom:1px solid var(--hair)}}
+@media(max-width:560px){.ov6{grid-template-columns:repeat(2,1fr)}}
+.tl{position:relative;background:var(--paper2);border:1px solid var(--hair2);padding:38px 38px 12px}
+.tl::before{content:"";position:absolute;left:48px;top:44px;bottom:20px;width:1px;background:var(--hair2)}
+.step{position:relative;padding:0 0 34px 52px}
+.step:last-child{padding-bottom:14px}
+.step .dot{position:absolute;left:4px;top:7px;width:15px;height:15px;border-radius:50%;background:var(--paper);border:2px solid var(--ink);z-index:1}
+.step.hot .dot{background:var(--red);border-color:var(--red)}
+.step .st{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap}
+.step .num{font-family:var(--serif);font-size:14px;color:var(--faint);letter-spacing:.2em}
+.step h3{font-family:var(--serif);font-weight:700;font-size:21px;letter-spacing:.08em}
+.step.hot h3{color:var(--red)}
+.step p{margin-top:7px;font-size:14px;line-height:1.95;color:var(--ink2);max-width:680px}
+@media(max-width:640px){.tl{padding:28px 20px 8px}.tl::before{left:28px}}
+.tpl{margin:6px 0 30px 52px;border:1px solid var(--hair2);background:var(--paper);padding:22px 26px;max-width:700px}
+.tpl .tt{font-family:var(--serif);font-weight:700;font-size:16px;letter-spacing:.06em;border-bottom:1px solid var(--red);padding-bottom:9px;margin-bottom:11px}
+.tpl p{font-size:13.5px;line-height:1.95;color:var(--ink2);margin-bottom:9px}
+.tpl p:last-child{margin-bottom:0}
+@media(max-width:640px){.tpl{margin-left:0}}
+.pre-notice{margin:2px 0 34px 52px;max-width:700px}
+@media(max-width:640px){.pre-notice{margin-left:0}}
+
+/* FAQ */
+.faq{border-top:1px solid var(--hair2)}
+.faq .qa{display:grid;grid-template-columns:1fr 1.4fr;gap:26px;padding:22px 2px;border-bottom:1px solid var(--hair);align-items:baseline}
+.faq .q{font-family:var(--serif);font-weight:700;font-size:16.5px;letter-spacing:.04em;line-height:1.8}
+.faq .a{font-size:14px;line-height:1.95;color:var(--ink2)}
+@media(max-width:760px){.faq .qa{grid-template-columns:1fr;gap:6px}}
+.faq-tier{margin-top:34px;font-size:11.5px;letter-spacing:.44em;color:var(--red)}
+
+/* 渠道卡（联系页） */
+.chan-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:26px}
+@media(max-width:900px){.chan-cards{grid-template-columns:1fr}}
+.chan-card{background:var(--paper2);border:1px solid var(--hair2);padding:30px 28px 26px;position:relative;transition:.25s}
+.chan-card:hover{border-color:var(--ink);transform:translateY(-2px)}
+.chan-card::before{content:"";position:absolute;top:0;left:0;width:34px;height:3px;background:var(--red)}
+.chan-card .cl{font-size:11px;letter-spacing:.4em;color:var(--red);margin-bottom:14px}
+.chan-card .cv{font-family:var(--serif);font-weight:900;font-size:clamp(20px,2.4vw,25px);letter-spacing:.03em;line-height:1.4;word-break:break-all}
+.chan-card .cv a{text-decoration:none;border-bottom:2px solid var(--red)}
+.chan-card .cu{margin-top:13px;font-size:13.5px;line-height:1.95;color:var(--ink2)}
+
+/* 页脚：墨色收尾带（v2，与墨色带同系） */
+footer{border-top:3px solid var(--gold);margin-top:110px;padding:64px 0 48px;background:var(--ink);color:var(--paper)}
+footer .fbrand{font-family:var(--serif);font-weight:900;font-size:19px;letter-spacing:.14em;display:flex;align-items:center;gap:12px;color:var(--paper)}
+footer nav{display:flex;gap:22px;flex-wrap:wrap;font-size:13px;letter-spacing:.16em;margin:26px 0 22px}
+footer nav a{text-decoration:none;color:#cfc9b8}
+footer nav a:hover{color:var(--gold2)}
+footer .fline{font-size:12.5px;line-height:2;color:#b9b2a0;max-width:760px}
+footer .fin{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:12px;color:#8d8676;letter-spacing:.14em;margin-top:26px;border-top:1px solid #3a362c;padding-top:20px}
+
+/* 滚动渐入 */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .9s ease,transform .9s ease}
+.rv.on{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+
+/* 首页改版（2026-11-11 大进化第三轮）：本页目录条、分组小标题、锚点偏移修正 */
+.serve a .sv::after{content:" \2192";color:var(--red);font-size:15px}
+.serve a:hover .sv::after{color:var(--gold2)}
+
+/* 定版首屏（2026-11-11 落地）：敬意句 / 分节头 / 痛点卡 / 理念引言 / 老师卡 */
+.humble{margin-top:26px}
+.humble span{display:inline-block;background:rgba(245,240,228,.9);color:#33302a;padding:10px 20px;font-size:14px;font-weight:600;letter-spacing:.16em;border:1px solid rgba(168,133,47,.5)}
+.sec{text-align:center;margin:40px 0 22px}
+.sec .orn{display:flex;align-items:center;justify-content:center;gap:12px}
+.sec .orn i{display:block;height:1px;width:92px;background:var(--gold)}
+.sec .orn em{display:block;width:9px;height:9px;background:var(--red);transform:rotate(45deg)}
+.sec h2{font-family:var(--serif);font-size:26px;font-weight:700;letter-spacing:.14em;margin-top:16px}
+.pain{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:8px 0 6px}
+.pain .pc{background:var(--paper2);border:1px solid var(--hair);border-top:3px solid var(--red);padding:22px 20px}
+.pain .pc h3{font-family:var(--serif);font-size:19px;letter-spacing:.04em;margin-bottom:8px}
+.pain .pc p{color:var(--ink2);font-size:14.5px;line-height:1.85}
+.creed{text-align:center;padding:36px 6% 6px}
+.creed .q{font-family:var(--serif);font-size:clamp(20px,3vw,27px);font-weight:700;line-height:1.7;letter-spacing:.04em}
+.creed .m{color:var(--ink2);margin-top:16px;line-height:2;font-size:15px}
+.tcard{display:grid;grid-template-columns:240px 1fr;gap:clamp(28px,4vw,54px);padding:40px 0 44px;border-top:1px solid var(--hair2)}
+.tcard.flip{grid-template-columns:1fr 240px}
+.tcard.flip .tphoto{order:2}
+.tcard.flip .tbody{order:1}
+.tcard .tphoto{text-align:center}
+.tcard .frame{width:240px;margin:0 auto}
+.tcard .ptag{display:inline-block;margin-top:14px;background:var(--red);color:#f5f0e4;font-size:12.5px;letter-spacing:.34em;text-indent:.34em;padding:6px 16px 6px 18px;font-family:var(--serif)}
+.tcard h2{font-family:var(--serif);font-size:34px;letter-spacing:.05em;padding-bottom:14px;border-bottom:2px solid var(--gold)}
+.tcard h2 .en{font-size:14px;color:var(--red);letter-spacing:.3em;margin-left:10px}
+.tcard .say{font-family:var(--serif);font-size:18.5px;line-height:1.85;margin:18px 0 8px;color:var(--ink)}
+.tcard .fld{display:grid;grid-template-columns:92px 1fr;gap:6px 14px;padding:13px 0 4px;border-top:1px dashed var(--hair);margin-top:10px}
+.tcard .fld .fl{font-family:var(--serif);color:var(--red);letter-spacing:.1em;font-size:14px;padding-top:3px;white-space:nowrap}
+.tcard .fld p{line-height:1.9;font-size:15px;color:var(--ink)}
+@media(max-width:760px){.pain{grid-template-columns:1fr}.tcard{grid-template-columns:1fr}.tcard.flip{grid-template-columns:1fr}.tcard.flip .tphoto{order:0}.tcard.flip .tbody{order:1}.tcard .fld{grid-template-columns:1fr;gap:2px}}
+
+/* 漏斗交棒（2026-11-12 落地）：首屏桥接句 + 第一句脚手架 */
+.bridge{text-align:center;margin:16px 0 0;font-size:13.5px;line-height:2}
+.bridge span{background:rgba(245,240,228,.78);padding:7px 16px;border-radius:999px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.bridge a{color:var(--red);text-decoration:underline;text-underline-offset:3px}
+.scaf{margin-top:10px;font-size:14px;color:var(--ink2)}
+
+/* ===== 排版同步沙盒（2026-11-13）：标题衡平 + 语义分段不断词 ===== */
+/* 定版结论：balance + strict + keep-all；.nb 锁短语；对齐方式沿用原样式
+   （本站标题左/中对齐各异，不统一改居中）；禁用 overflow-wrap。 */
+h1,h2,h3,.kick,.creed .q,.divider .cap,.statement .t,.notice .t,.tpl .tt,.biz .bk,.faq .q,.faq-tier,.ov6 .ov,.byline,.tcard .say,.imgband .cap .q,.imgband .cap .qs,.seaband .dropnote{text-wrap:balance;line-break:strict;word-break:keep-all}
+.nb{white-space:nowrap}
+
+</style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&family=Noto+Sans+SC:wght@400;500;700&display=swap">
@@ -63,7 +401,7 @@ html.night .hero .cta.solid{color:#fff}
 /* 双路带：不再是黑板子——深河色、上下化入纸面 */
 .band-ink{border:none;background:transparent}
 .band-ink::before{display:none}
-.band-ink::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:linear-gradient(180deg,rgba(26,45,54,0) 0%,rgba(26,45,54,.25) 15%,rgba(26,45,54,.55) 30%,rgba(26,45,54,.8) 45%,rgba(26,45,54,.86) 58%,rgba(26,45,54,.8) 70%,rgba(38,66,80,.55) 82%,rgba(38,66,80,.25) 92%,rgba(38,66,80,0) 100%)}
+.band-ink::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:linear-gradient(180deg,rgba(26,45,54,0) 0%,rgba(26,45,54,.25) 15%,rgba(26,45,54,.55) 30%,rgba(26,45,54,.8) 45%,rgba(26,45,54,.86) 58%,rgba(26,45,54,.62) 72%,rgba(38,66,80,.35) 84%,rgba(38,66,80,.13) 93%,rgba(38,66,80,0) 100%)}
 .band-ink .wrap{position:relative;z-index:1}
 .pband .bgimg{-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 10%,#000 92%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0,#000 10%,#000 92%,transparent 100%)}
 /* 概念六：烛光带已移出首页（落地时放陌语页），相关规则删除 */
@@ -104,7 +442,7 @@ html.night footer{background:#0a1a3e}
 #safety .ch-head .en{color:#8a6d1f;text-shadow:0 0 10px rgba(245,240,228,.9)}
 .band-ink .ch-head h2,.band-ink .paths h3,.band-ink .paths .pd,.band-ink .steps-h .sh{text-shadow:0 1px 14px rgba(8,22,32,.85),0 0 4px rgba(8,22,32,.6)}
 .seaband .dropnote{text-shadow:0 2px 16px rgba(4,18,36,.85),0 0 6px rgba(4,18,36,.6)}
-html.night .hero .sub,html.night .sec h2,html.night .creed .q,html.night .creed .m,html.night .tcard h2,html.night .tcard .say,html.night .tcard .fld p,html.night .tcard .fld .fl,html.night #safety .ch-head h2{text-shadow:0 0 20px rgba(245,240,228,1),0 0 6px rgba(245,240,228,.95)}
+html.night .hero .sub,html.night .sec h2,html.night .wl-h,html.night .creed .q,html.night .creed .m,html.night .tcard h2,html.night .tcard .say,html.night .tcard .fld p,html.night .tcard .fld .fl,html.night #safety .ch-head h2{text-shadow:0 0 20px rgba(245,240,228,1),0 0 6px rgba(245,240,228,.95)}
 html.night .creed{background:radial-gradient(ellipse 62% 85% at 50% 50%,rgba(245,240,228,.42),rgba(245,240,228,0) 75%)}
 html.night .tcard .tbody{background:radial-gradient(ellipse 92% 78% at 50% 50%,rgba(245,240,228,.44),rgba(245,240,228,0) 80%)}
 
@@ -129,6 +467,135 @@ h1,h2,h3{text-wrap:balance}
 .bridge span{background:rgba(245,240,228,.78);padding:7px 16px;border-radius:999px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
 .bridge a{color:var(--red);text-decoration:underline;text-underline-offset:3px}
 </style>
+<style>
+/* 首页落站版呈现层（2026-11-13）：分区、双路带 veil、暮色罩——规则见 CONTENT_RULES.md 第 12 条 */
+/* v2 paint (2026-11-13 round 2): continuous .onepaint fill restored, v14 original, same as live 97e07b2.
+   The v1 three-part presentation (mid layer + hero cover + seaband slice) is removed: at 1920px it
+   exposed a cold grey-blue band above the FAQ zone, and a hard seam at the hero bottom on desktop.
+   .onepaint rules live in the concept block above; nothing here overrides them. Night readability
+   keeps the v1 scrim (html.night .hero::after) and dark halos below. */
+/* v3 dusk veil (2026-11-13): the painting itself turns perfectly flat at 92% of its height
+   (measured: row stddev 16 -> 0 within ~20 image rows; mean luminance stays smooth, so the
+   cliff is a texture edge, not a brightness edge). On this longer page the cliff lands
+   mid-seaband, exposed. This veil shares .onepaint's box, so its gradient tracks the
+   painting at ANY page height: transparent at 88.5%, solid footer-navy at 92.5%.
+   Painting, sutra and light untouched; content (z-index 1) stays above the veil. */
+.onepaint::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(18,39,92,0) 87%,rgba(18,39,92,.25) 88.5%,rgba(18,39,92,.55) 90%,rgba(18,39,92,.82) 91%,rgba(18,39,92,.97) 91.8%,#12275c 92.5%,#12275c 100%)}
+html.night .onepaint::after{background:linear-gradient(180deg,rgba(10,26,62,0) 87%,rgba(10,26,62,.25) 88.5%,rgba(10,26,62,.55) 90%,rgba(10,26,62,.82) 91%,rgba(10,26,62,.97) 91.8%,#0a1a3e 92.5%,#0a1a3e 100%)}
+/* G7 mast: no wrap on small screens, hero margin matches measured mast height */
+.mast .brand{white-space:nowrap}
+.mast nav a.navcta{white-space:nowrap}
+.hero{margin-top:61px}
+@media(max-width:900px){.mast{padding:10px 14px}.mast .brand{font-size:13px;letter-spacing:.12em;gap:8px}.mast .seal{width:30px;height:30px;font-size:10px}.hero{margin-top:54px}}
+/* G5 night hero: dark scrim + dark halo so kick/sub read line by line */
+html.night .hero::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(ellipse 78% 62% at 50% 36%,rgba(6,14,26,.55),rgba(6,14,26,0) 72%)}
+html.night .hero h1{text-shadow:0 2px 20px rgba(0,0,0,.75),0 0 8px rgba(0,0,0,.6)}
+html.night .hero .kick{color:#f0e2b8;text-shadow:0 2px 14px rgba(0,0,0,.8),0 0 6px rgba(0,0,0,.65)}
+html.night .hero .sub{color:#f2ecdc;text-shadow:0 2px 14px rgba(0,0,0,.8),0 0 6px rgba(0,0,0,.65)}
+/* G11 band：底边须羽化到透明——0.38 残留曾在带底拉出约 59 级亮度硬线（实测）。中段加深保留，尾部回十四版原值。section-head English wraps below on narrow screens */
+.band-ink::after{background:linear-gradient(180deg,rgba(26,45,54,0) 0%,rgba(26,45,54,.25) 15%,rgba(26,45,54,.55) 30%,rgba(26,45,54,.8) 45%,rgba(26,45,54,.88) 58%,rgba(26,45,54,.62) 72%,rgba(38,66,80,.35) 84%,rgba(38,66,80,.13) 93%,rgba(38,66,80,0) 100%)}
+@media(max-width:560px){.ch-head{flex-wrap:wrap;row-gap:6px}.ch-head .en{margin-left:0;width:100%;order:3}}
+/* G9 small text at 4.5:1 or better (recomputed, see builder notes) */
+.divider .cap{color:#6f5f33}
+.ch-head .en{color:#7c611f}
+#safety .ch-head .en{color:#7c611f}
+.overview2 .ch2 .ce{color:#6b6455}
+footer .fin{color:#a89f8c}
+.figcap,.byline,.quote .src{color:#6b6455}
+/* G25 three levels: big question / answer body / micro labels */
+.sec h2,.ch-head h2{font-size:clamp(28px,4.2vw,38px);letter-spacing:.12em}
+.hero .kick{font-size:12px;letter-spacing:.42em;text-indent:.42em}
+.ch-head .en,.overview2 .ch2 .ce{font-size:12px;letter-spacing:.22em}
+.divider .cap{font-size:12px;letter-spacing:.34em}
+.faq-tier{font-size:12px;letter-spacing:.34em}
+.tcard .say{font-size:20px}
+.pain .pc h3{font-size:20px}
+/* G26 44px press targets, visual size unchanged */
+.bridge a{display:inline-block;padding:12px 3px;margin:-12px 0}
+footer nav a{display:inline-block;padding:13px 2px}
+.mast nav a{display:inline-block;padding:14px 2px;margin:-14px 0}
+.mast nav a.navcta{padding:14px 14px;margin:-8px 0}
+/* G27 reduced motion: every endless animation stops, static picture stays */
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rays,.dust i,.stars i,.moonpath{animation:none}.dust i{opacity:0}.stars i{opacity:.6}.themebtn{transition:none}.lightpour.pour{animation:none;opacity:0}}
+/* seaband: 100% width removes the pre-existing +15px overflow at 768px */
+.seaband{width:100%;margin-left:0}
+/* G2 verify anchor + benchmark 7 anchor nav */
+.verify{max-width:1160px;margin:0 auto;padding:0 30px}
+.verify p{margin:26px auto 0;max-width:820px;text-align:center;font-size:14px;line-height:2;color:var(--ink);background:rgba(251,248,239,.9);border:1px solid var(--hair2);border-left:4px solid var(--red);padding:14px 20px}
+.verify a{color:var(--red)}
+.pagenav{max-width:1160px;margin:22px auto 0;padding:0 30px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.pagenav a{font-size:13px;line-height:1.4;letter-spacing:.1em;color:var(--ink2);text-decoration:none;border:1px solid var(--hair2);background:rgba(251,248,239,.85);padding:12px 13px}
+.pagenav a:hover{color:var(--red);border-color:var(--red)}
+@media(max-width:640px){.verify{padding:0 20px}.pagenav{padding:0 20px;justify-content:flex-start}}
+/* benchmark 2 newcomer map + benchmark 3 triage (static, no quiz) */
+.maplist{border:1px solid var(--ink);background:rgba(251,248,239,.88)}
+.maprow{display:flex;gap:16px;align-items:baseline;padding:16px 22px;border-bottom:1px dashed var(--hair);text-decoration:none}
+.maprow:last-child{border-bottom:none}
+.maprow:hover{background:rgba(245,240,228,.95)}
+.maprow:hover .mk{color:var(--red)}
+.maprow .mk{font-family:var(--serif);font-weight:700;font-size:17px;letter-spacing:.04em;min-width:210px}
+.maprow .md{font-size:13.5px;line-height:1.9;color:var(--ink2)}
+.maprow .mk::after{content:" \2192";color:var(--red);font-size:14px}
+@media(max-width:760px){.maprow{flex-direction:column;gap:4px}.maprow .mk{min-width:0}}
+.triage{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.tq{background:rgba(251,248,239,.88);border:1px solid var(--hair);border-top:3px solid var(--red);padding:22px 20px}
+.tq h3{font-family:var(--serif);font-size:19px;line-height:1.7;letter-spacing:.03em}
+.tq p{margin-top:10px;font-size:14px;line-height:1.95;color:var(--ink2)}
+.tq .go{margin-top:14px}
+.tq .go a{color:var(--red);font-size:14px}
+@media(max-width:760px){.triage{grid-template-columns:1fr}}
+/* G6 facts band: verified numbers only, no ratings */
+.factband{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--ink);background:rgba(251,248,239,.88)}
+.fact{padding:24px 18px 22px;text-align:center;border-right:1px solid var(--hair)}
+.fact:last-child{border-right:none}
+.fact .fn{font-family:var(--serif);font-weight:900;font-size:40px;color:var(--red);line-height:1.1}
+.fact .fn small{font-size:17px;font-weight:700;color:var(--ink);margin-left:2px}
+.fact .fd{margin-top:10px;font-size:13px;line-height:1.9;color:var(--ink2)}
+@media(max-width:860px){.factband{grid-template-columns:repeat(2,1fr)}.fact:nth-child(2){border-right:none}.fact:nth-child(1),.fact:nth-child(2){border-bottom:1px solid var(--hair)}}
+@media(max-width:420px){.factband{grid-template-columns:1fr}.fact{border-right:none;border-bottom:1px solid var(--hair)}.fact:last-child{border-bottom:none}}
+/* G12 overview rows: whole row links to the person page + hover feedback */
+a.ov-row{text-decoration:none;color:inherit;flex-wrap:wrap}
+a.ov-row:hover{background:rgba(245,240,228,.95)}
+a.ov-row:hover .k{color:var(--red)}
+a.ov-row .k::after{content:" \2192";color:var(--red);font-size:13px}
+/* benchmark 4 status tags: every tag has existing copy behind it */
+.ov-row .tag{font-size:12px;letter-spacing:.14em;color:var(--red);border:1px solid var(--red);padding:2px 8px;white-space:nowrap}
+/* benchmark 5 front FAQ: question + short answer + one destination */
+.faq .a .ago{margin-top:10px}
+.faq .a .ago a{color:var(--red);font-size:13.5px}
+.faq .q{font-size:17.5px}
+/* benchmark 1 whitelist: the three existing channels only */
+.wl-h{font-family:var(--serif);font-weight:900;font-size:21px;letter-spacing:.08em;margin:36px 0 4px;text-shadow:0 0 14px rgba(245,240,228,.95),0 0 4px rgba(245,240,228,.9)}
+.wl{border:1px solid var(--hair2);background:rgba(251,248,239,.9);margin-top:16px}
+.wl-row{display:flex;gap:16px;align-items:baseline;padding:15px 22px;border-bottom:1px dashed var(--hair)}
+.wl-row:last-child{border-bottom:none}
+.wl-row .wk{font-family:var(--serif);font-weight:700;font-size:15.5px;min-width:238px;word-break:break-all}
+.wl-row .wk a{color:var(--red)}
+.wl-row .wd{font-size:13.5px;line-height:1.9;color:var(--ink2)}
+/* v3 补丁：wl-note 与 wl-h 可能落在暮色罩区（窄屏尤甚），裸字在暗底上站不住——note 改纸条、标题补光晕（与桥接句纸丸、sec 标题光晕同例） */
+.wl-note{margin-top:14px;font-size:14px;line-height:2;color:var(--ink);background:rgba(251,248,239,.90);border:1px solid var(--hair2);padding:12px 20px}
+.wl-note a{color:var(--red)}
+@media(max-width:760px){.wl-row{flex-direction:column;gap:4px}.wl-row .wk{min-width:0}}
+/* G18 homepage headings: person names sit under the section question */
+.tcard h3{font-family:var(--serif);font-size:34px;letter-spacing:.05em;padding-bottom:14px;border-bottom:2px solid var(--gold);text-shadow:0 0 14px rgba(245,240,228,.95),0 0 4px rgba(245,240,228,.9)}
+.tcard h3 .en{font-size:14px;color:var(--red);letter-spacing:.3em;margin-left:10px}
+html.night .tcard h3{text-shadow:0 0 20px rgba(245,240,228,1),0 0 6px rgba(245,240,228,.95)}
+/* G4 section exits + G1 hero plain line */
+.secgo{margin:20px 0 0;text-align:center;font-size:14.5px;line-height:2;color:var(--ink2)}
+.secgo a{color:var(--red)}
+.cardgo{margin-top:16px}
+.cardgo a{color:var(--red);font-size:14.5px}
+.hero .plainline{margin:22px auto 0;max-width:680px;font-size:15.5px;line-height:2.05;color:var(--ink);text-shadow:0 0 12px rgba(245,240,228,.95),0 0 3px rgba(245,240,228,.9)}
+html.night .hero .plainline{color:#f2ecdc;text-shadow:0 2px 14px rgba(0,0,0,.8),0 0 6px rgba(0,0,0,.65)}
+.maprow .mk,.wl-row .wk{text-wrap:balance;line-break:strict;word-break:keep-all}
+/* G3 linked channels read as links */
+.statement p a{color:var(--red);text-decoration:underline;text-underline-offset:3px}
+footer .fline a{color:#e8e2d2;text-decoration:underline;text-underline-offset:3px}
+/* mast nav stays hidden at <=900px (G26 hit-area rule must not undo the baseline hiding) */
+@media(max-width:900px){.mast nav a{display:none}.mast nav a.navcta{display:inline-block;padding:14px 14px;margin:-8px 0}}
+/* 768px +15px: photo halo (::before 330px) spills past the card; clip it at the card edge (visible glow radius stays inside) */
+.tcard{overflow-x:clip}
+</style>
 </head>
 <body>
 <div class="onepaint" aria-hidden="true"><img src="onepaint-2200.jpg" alt=""></div>
@@ -150,8 +617,10 @@ h1,h2,h3{text-wrap:balance}
     <div class="kick"><span class="nb">志 远 行 空 ·</span> <span class="nb">陌 语</span> <span class="nb">E U N O I A</span> <span class="nb">官 方 站</span></div>
     <h1>一脉阴阳断困局<br>一脉金火涤灵台</h1>
     <p class="sub">事上的困局，心里的卡点——感情、事业、健康、家宅里说不清的反复，灵魂与能量上过不去的结，先在这里问清，再看怎么办。</p>
+    <p class="plainline">能办的事分两边：志远行空查事，先找出问题；陌语问诊疗愈，先问诊、后预约。第一步，都是联系官方助理。</p>
     <div class="acts">
-      <a class="cta" href="#teachers">两位老师介绍</a>
+      <a class="cta" href="lianxi.html">联系官方助理</a>
+      <a class="cta ghost" href="#teachers">两位老师介绍</a>
       <a class="cta ghost" href="#pain">看我遇到的问题</a>
     </div>
     <p class="humble"><span>有事相求，先怀敬意<br>把心放平，把问题说清，再往下看</span></p>
@@ -159,24 +628,45 @@ h1,h2,h3{text-wrap:balance}
   </div>
 </div>
 
+<div class="verify"><p>先验真：官方渠道只有这三个——Telegram @zyxk888、WhatsApp +44 07706 981476、投稿邮箱 zyxk9999@gmail.com。<a href="lianxi.html">去联系页核对</a></p></div>
+<nav class="pagenav" aria-label="本页目录"><a href="#newcomer">第一次来</a><a href="#pain">遇到的问题</a><a href="#triage">哪种情况</a><a href="#teachers">两位老师</a><a href="#facts">数字与事实</a><a href="#overview">业务总览</a><a href="#paths">怎么办</a><a href="#faq">常见问题</a><a href="#safety">防骗声明</a></nav>
+
 <div class="wrap">
 
+    <div class="sec" id="newcomer"><div class="orn"><i></i><em></em><i></i></div><h2>第一次来，<wbr>先看哪里？</h2></div>
+    <div class="maplist">
+      <a class="maprow" href="#pain"><span class="mk">先对上你的情况</span><span class="md">同一件事总出问题、心里堵得慌、孩子和家里放心不下——看哪一句说的是你。</span></a>
+      <a class="maprow" href="#teachers"><span class="mk">再看两位老师是谁</span><span class="md">两位老师能做什么、规矩是什么、怎么联系，都在下面。</span></a>
+      <a class="maprow" href="#overview"><span class="mk">然后看具体能办哪些事</span><span class="md">业务总览里逐项列明，志远行空传统业务在前，陌语天巫项目在后。</span></a>
+      <a class="maprow" href="#paths"><span class="mk">再看怎么办，分几步</span><span class="md">查事走六步，陌语的项目走另一条路，都从助理开始。</span></a>
+      <a class="maprow" href="#safety"><span class="mk">随时回来验真</span><span class="md">官方渠道只有这三个，其他自称官方助理的，都不是我们的人。</span></a>
+      <a class="maprow" href="lianxi.html"><span class="mk">想开始了，联系官方助理</span><span class="md">所有咨询、问诊与对接，都从官方助理这里开始。</span></a>
+    </div>
 
-    <div class="sec"><div class="orn"><i></i><em></em><i></i></div><h2>你遇到的问题</h2></div>
+    <div class="sec"><div class="orn"><i></i><em></em><i></i></div><h2>这是不是<wbr>你现在的情况？</h2></div>
   <div class="pain" id="pain">
     <div class="pc"><h3>同一<span class="nb">件事，</span><wbr>总出问题</h3><p>感情、事业、做生意，换了人、换了做法，还是卡在同一个地方。</p><p style="margin-top:8px">自己琢磨了很久，也说不清到底是哪儿出了错。</p></div>
     <div class="pc"><h3>心里堵得慌</h3><p>焦虑、睡不着、提不起劲。明知道自己不对劲，又说不清是哪儿的问题，这个结不知道从哪儿解。</p></div>
     <div class="pc"><h3>孩子和<span class="nb">家里，</span><wbr>放心不下</h3><p>孩子状态反常、家里气氛不对，操心又没处问，更怕问错了人、走错了路。</p></div>
   </div>
 
+  <p class="secgo">上面这些事，总览里逐项列明了。<a href="#overview">去业务总览看看</a></p>
+
   <div class="creed">
     <div class="q">先把问题看清<wbr>才谈怎么解决</div>
     <p class="m">志远行空查事，先找出问题，再给处置<br>陌语问诊疗愈，唤醒潜力，重塑边界<br>两位老师能做什么、规矩是什么、怎么联系，都在下面</p>
   </div>
 
+    <div class="sec" id="triage"><div class="orn"><i></i><em></em><i></i></div><h2>你是哪一种情况？</h2></div>
+  <div class="triage">
+    <div class="tq"><h3>事上出了问题，<wbr>想先找出问题？</h3><p>查事，就是找出问题——先诊断，才谈得上开方。</p><p class="go"><a href="chashi.html">走六步，去查事与流程页</a></p></div>
+    <div class="tq"><h3>心里、能量上过不去，<wbr>想先问诊？</h3><p>陌语的项目，先问诊、后预约：问诊确认这个项目适不适合你，之后再预约进行。</p><p class="go"><a href="moyu.html">去看陌语的项目与问诊</a></p></div>
+    <div class="tq"><h3>分不清<wbr>该走哪条路？</h3><p>先联系官方助理，把情况说清。不用写成长文，助理会接着问你。</p><p class="go"><a href="lianxi.html">联系官方助理</a></p></div>
+  </div>
+
   
 <div class="lotusorn" aria-hidden="true"><svg width="132" height="36" viewBox="0 0 120 34"><g fill="none" stroke="#a8852f" stroke-width="1.6"><path d="M60 4 C66 12 66 20 60 28 C54 20 54 12 60 4Z"/><path d="M38 10 C48 12 54 18 56 27 C46 26 39 20 38 10Z"/><path d="M82 10 C72 12 66 18 64 27 C74 26 81 20 82 10Z"/><path d="M14 16 C24 15 32 20 36 26 C26 28 17 24 14 16Z"/><path d="M106 16 C96 15 88 20 84 26 C94 28 103 24 106 16Z"/></g></svg></div>
-<div class="sec"><div class="orn"><i></i><em></em><i></i></div><h2>两位老师</h2></div>
+<div class="sec"><div class="orn"><i></i><em></em><i></i></div><h2>他们是谁，<wbr>能办什么事？</h2></div>
 
   <div class="tcard" id="teachers">
     <div class="tphoto">
@@ -184,10 +674,11 @@ h1,h2,h3{text-wrap:balance}
       <span class="ptag">特邀疗愈师</span>
     </div>
     <div class="tbody">
-      <h2>志远行空</h2>
-      <p class="say">查事，先找出问题，再给处置——<wbr><span class="nb">能诊断，也能开方子。</span></p>
+      <h3>志远行空</h3>
+      <p class="say">查事，<wbr>先找出问题，<wbr>再给处置——<wbr>能诊断，也能开方子。</p>
       <div class="fld"><span class="fl">传承特质：</span><p>阴阳师体系的传承者，本源智慧。看事不堆术语，全用大白话，听得懂、用得上。</p></div>
       <div class="fld"><span class="fl">能解的问题：</span><p>感情波折、事业财运的卡点、健康与家宅的异常，还有年命运势。处置有超度、画符、风水祈福与晶光静心。</p></div>
+      <p class="cardgo"><a href="zhiyuan.html">去志远行空页，逐条看说明</a></p>
     </div>
   </div>
 
@@ -197,40 +688,49 @@ h1,h2,h3{text-wrap:balance}
       <span class="ptag">明星疗愈师</span>
     </div>
     <div class="tbody">
-      <h2>陌语<span class="en">EUNOIA</span></h2>
+      <h3>陌语<span class="en">EUNOIA</span></h3>
       <p class="say"><span class="nb">能量温和，不代表能量弱。</span></p>
       <div class="fld"><span class="fl">传承特质：</span><p>上古天巫传人，金火本源。做的是深层剥离、重塑与边界重建，是灵魂的能量破局者。</p></div>
       <div class="fld"><span class="fl">能解的问题：</span><p>人生里反复出现的卡点、关系与情绪上的困境、能量与脉轮状态、孩子与家庭结构的问题。先问诊、后预约，以许愿蜡烛、能量阵蜡烛、佛眼智轮、能量净化与祈福等方式处理。</p></div>
+      <p class="cardgo"><a href="moyu.html">去陌语页，看项目与边界</a></p>
     </div>
   </div>
 
-<div class="sec"><div class="orn"><i></i><em></em><i></i></div><h2>业务总览</h2></div>
+<div class="sec" id="facts"><div class="orn"><i></i><em></em><i></i></div><h2>站上写了<wbr>多少事？</h2></div>
+    <div class="factband">
+      <div class="fact"><div class="fn">17<small>项</small></div><p class="fd">业务总览里的项目：志远行空 8 项，陌语 9 项。</p></div>
+      <div class="fact"><div class="fn">6<small>步</small></div><p class="fd">查事从咨询到安排查事，一步一步来。</p></div>
+      <div class="fact"><div class="fn">30<small>余种</small></div><p class="fd">问题模板的类别，照着类别把问题逐项写清。</p></div>
+      <div class="fact"><div class="fn">3<small>个</small></div><p class="fd">官方渠道：Telegram、WhatsApp、投稿邮箱。</p></div>
+    </div>
+
+<div class="sec"><div class="orn"><i></i><em></em><i></i></div><h2>具体有哪些<wbr>事可以办？</h2></div>
 
   <section class="ch rv" id="overview" style="padding-top:56px">
     <div class="overview2">
       <div class="col">
         <div class="ch2"><h3>志远<span class="nb">行空 ·</span><wbr> 传统业务</h3><span class="ce">WHAT HE DOES</span></div>
-        <div class="ov-row"><span class="k">查事</span><span class="d">找出问题——先看清风险与优势，再决定怎么动</span></div>
-        <div class="ov-row"><span class="k">每日回卦</span><span class="d">每天回复问询，逐一给出卦象结论与建议。</span></div>
-        <div class="ov-row"><span class="k">年命卦</span><span class="d">每年过年期间，集中为求问者看年命卦</span></div>
-        <div class="ov-row"><span class="k">超度</span><span class="d">查事之后的处置手段之一，是否需要，看查事的结果。</span></div>
-        <div class="ov-row"><span class="k">画符</span><span class="d">靠符箓处理因果业债等事项，查事之后的处置手段之一。</span></div>
-        <div class="ov-row"><span class="k">风水祈福</span><span class="d">查看阴阳宅风水，并做祈福</span></div>
-        <div class="ov-row"><span class="k">晶光静心</span><span class="d">在云行远堂实际操作的项目：躺约半小时，法阵的能量帮助吸走负能量，起来后再沟通。</span></div>
-        <div class="ov-row"><span class="k">直播讲学</span><span class="d">定期直播讲学与答疑</span></div>
+        <a class="ov-row" href="zhiyuan.html"><span class="k">查事</span><span class="d">找出问题——先看清风险与优势，再决定怎么动</span></a>
+        <a class="ov-row" href="zhiyuan.html"><span class="k">每日回卦</span><span class="d">每天回复问询，逐一给出卦象结论与建议。</span></a>
+        <a class="ov-row" href="zhiyuan.html"><span class="k">年命卦</span><span class="tag">过年期间</span><span class="d">每年过年期间，集中为求问者看年命卦</span></a>
+        <a class="ov-row" href="zhiyuan.html"><span class="k">超度</span><span class="d">查事之后的处置手段之一，是否需要，看查事的结果。</span></a>
+        <a class="ov-row" href="zhiyuan.html"><span class="k">画符</span><span class="d">靠符箓处理因果业债等事项，查事之后的处置手段之一。</span></a>
+        <a class="ov-row" href="zhiyuan.html"><span class="k">风水祈福</span><span class="d">查看阴阳宅风水，并做祈福</span></a>
+        <a class="ov-row" href="zhiyuan.html"><span class="k">晶光静心</span><span class="d">在云行远堂实际操作的项目：躺约半小时，法阵的能量帮助吸走负能量，起来后再沟通。</span></a>
+        <a class="ov-row" href="zhiyuan.html"><span class="k">直播讲学</span><span class="tag">定期</span><span class="d">定期直播讲学与答疑</span></a>
         <div class="more"><a class="cta ghost" href="zhiyuan.html">逐条看说明</a></div>
       </div>
       <div class="col">
         <div class="ch2"><h3><span class="nb">陌语 ·</span><wbr> 天巫项目</h3><span class="ce">ALL PROJECTS</span></div>
-        <div class="ov-row"><span class="k">许愿蜡烛</span><span class="d">PLUS 版 150g 与体验版约 75g，按人单独配置</span></div>
-        <div class="ov-row"><span class="k">能量阵蜡烛</span><span class="d">一套 3 支，配植物、水晶与能量符纸，一支一支点</span></div>
-        <div class="ov-row"><span class="k">七灵根蜡烛</span><span class="d">一套 7 支，对应七灵根，限量、无法量产</span></div>
-        <div class="ov-row"><span class="k">佛眼智轮</span><span class="d">须有修行基础并提交审核，限时限量，等待期不可预计</span></div>
-        <div class="ov-row"><span class="k">能量净化</span><span class="d">分 9 大类，每次只做 5 个小分项，选错是风险，先问诊定项</span></div>
-        <div class="ov-row"><span class="k">能量祈福</span><span class="d">加持作用，先说在前面：不保证百分百效果</span></div>
-        <div class="ov-row"><span class="k">灵能疗愈</span><span class="d">深层剥离、重塑与边界重建，针对事业、婚姻、职场、育儿上的长期卡点与内耗。</span></div>
-        <div class="ov-row"><span class="k">脉轮探查</span><span class="d">看清当前能量状态，并给出具体方案</span></div>
-        <div class="ov-row"><span class="k">青少年探查</span><span class="d">家庭结构探查，7 周岁起接，9 岁及以上最顺畅</span></div>
+        <a class="ov-row" href="moyu.html"><span class="k">许愿蜡烛</span><span class="d">PLUS 版 150g 与体验版约 75g，按人单独配置</span></a>
+        <a class="ov-row" href="moyu.html"><span class="k">能量阵蜡烛</span><span class="d">一套 3 支，配植物、水晶与能量符纸，一支一支点</span></a>
+        <a class="ov-row" href="moyu.html"><span class="k">七灵根蜡烛</span><span class="tag">限量</span><span class="d">一套 7 支，对应七灵根，限量、无法量产</span></a>
+        <a class="ov-row" href="moyu.html"><span class="k">佛眼智轮</span><span class="tag">须审核</span><span class="tag">限时限量</span><span class="d">须有修行基础并提交审核，限时限量，等待期不可预计</span></a>
+        <a class="ov-row" href="moyu.html"><span class="k">能量净化</span><span class="tag">先问诊</span><span class="d">分 9 大类，每次只做 5 个小分项，选错是风险，先问诊定项</span></a>
+        <a class="ov-row" href="moyu.html"><span class="k">能量祈福</span><span class="d">加持作用，先说在前面：不保证百分百效果</span></a>
+        <a class="ov-row" href="moyu.html"><span class="k">灵能疗愈</span><span class="d">深层剥离、重塑与边界重建，针对事业、婚姻、职场、育儿上的长期卡点与内耗。</span></a>
+        <a class="ov-row" href="moyu.html"><span class="k">脉轮探查</span><span class="d">看清当前能量状态，并给出具体方案</span></a>
+        <a class="ov-row" href="moyu.html"><span class="k">青少年探查</span><span class="tag">7 周岁起</span><span class="d">家庭结构探查，7 周岁起接，9 岁及以上最顺畅</span></a>
         <div class="more"><a class="cta ghost" href="moyu.html">逐项看清单与边界</a></div>
       </div>
     </div>
@@ -240,7 +740,7 @@ h1,h2,h3{text-wrap:balance}
 <!-- 双路流程（墨色带） -->
 <div class="band-ink" id="paths">
   <div class="wrap">
-    <div class="ch-head"><span class="no">对接</span><h2>办事<wbr>分两条路<wbr>都从助理开始</h2><span class="en">TWO PATHS</span></div>
+    <div class="ch-head"><span class="no">对接</span><h2>怎么办，<wbr>分几步？</h2><span class="en">TWO PATHS</span></div>
     <div class="paths">
       <div class="path rv">
         <h3><span class="nb">查事，</span><wbr>走六步<span class="who">志 远 行 空</span></h3>
@@ -263,13 +763,31 @@ h1,h2,h3{text-wrap:balance}
 </div>
 
 <div class="wrap">
+    <div class="sec" id="faq"><div class="orn"><i></i><em></em><i></i></div><h2>来之前，<wbr>还有什么要问的？</h2></div>
+    <div class="faq">
+      <div class="qa"><h3 class="q">第一步<wbr>到底该干什么？</h3><div class="a">联系官方助理，先咨询。渠道只有联系页上那几个：Telegram、WhatsApp、投稿邮箱，各自用途都标清了。<p class="ago"><a href="lianxi.html">去联系页，看三个渠道</a></p></div></div>
+      <div class="qa"><h3 class="q">我的资料交出去，<wbr>安不安全？</h3><div class="a">姓名、生日、照片只用来查事，个人资料仅由志远行空本人保管，不经过很多人。<p class="ago"><a href="chashi.html">去查事与流程页，看模板预览</a></p></div></div>
+      <div class="qa"><h3 class="q">查事能保证<wbr>把我的问题解决吗？</h3><div class="a">查事是找出问题——先诊断，才谈得上开方。找出问题之后如何处置、能改变到什么程度，要看具体情况，不预先承诺。<p class="ago"><a href="chashi.html">去查事与流程页，看六步</a></p></div></div>
+      <div class="qa"><h3 class="q">交单之后<wbr>要等多久？</h3><div class="a">问题确认、资料交齐之后，按顺序排队安排。排到你之前，助理会跟你保持联系；急事有加急的规矩，问助理。<p class="ago"><a href="chashi.html">去查事与流程页，看完整问答</a></p></div></div>
+      <div class="qa"><h3 class="q">有人私下联系我，<wbr>说能帮我办，怎么办？</h3><div class="a">那不是我们的人。在中国大陆自称是他本人、他的代理或助手、承接业务或卖雷击木手串的，都是骗人的。停下，回到联系页核对官方渠道。<p class="ago"><a href="lianxi.html">去联系页，核对官方渠道</a></p></div></div>
+    </div>
+</div>
+
+<div class="wrap">
   <section class="ch rv" id="safety">
-    <div class="ch-head"><span class="no">防骗</span><h2>防骗声明</h2><span class="en">BEWARE OF FAKES</span></div>
+    <div class="ch-head"><span class="no">防骗</span><h2>怎么认出骗子？</h2><span class="en">BEWARE OF FAKES</span></div>
     <div class="statement">
       <div class="t">严正声明</div>
       <p>志远行空本人在中国大陆地区没有任何自己的频道，也绝不会把内容发布到中国大陆地区。凡在中国大陆自称是他本人、他的代理或助手、承接业务，或者卖雷击木手串等的，都是骗人的，请勿上当。</p>
-      <p style="margin-top:14px">官方渠道只有这三个：Telegram <b>@zyxk888</b>、WhatsApp <b>+44 07706 981476</b>、投稿邮箱 <b>zyxk9999@gmail.com</b>。其他自称官方助理的，都不是我们的人。</p>
+      <p style="margin-top:14px">官方渠道只有这三个：Telegram <b><a href="https://t.me/zyxk888" target="_blank" rel="noopener">@zyxk888</a></b>、WhatsApp <b><a href="https://wa.me/4407706981476" target="_blank" rel="noopener">+44 07706 981476</a></b>、投稿邮箱 <b>zyxk9999@gmail.com</b>。其他自称官方助理的，都不是我们的人。</p>
     </div>
+    <h3 class="wl-h">哪三个渠道是真的？</h3>
+    <div class="wl">
+      <div class="wl-row"><span class="wk">Telegram <a href="https://t.me/zyxk888" target="_blank" rel="noopener">@zyxk888</a></span><span class="wd">官方助理一对一。查事咨询、陌语问诊、进群对接，都从这里开始。</span></div>
+      <div class="wl-row"><span class="wk">WhatsApp <a href="https://wa.me/4407706981476" target="_blank" rel="noopener">+44 07706 981476</a></span><span class="wd">官方助理一对一联系号（这是助理的联系号，不是群邀请链接）。用途同上，选顺手的渠道即可。</span></div>
+      <div class="wl-row"><span class="wk">投稿邮箱 zyxk9999@gmail.com</span><span class="wd">故事投稿与资料投递专用。咨询与办事请走上面两个助理渠道，邮箱不办业务。</span></div>
+    </div>
+    <p class="wl-note">存疑时，停下，<a href="lianxi.html">回到联系页核对官方渠道</a>。</p>
     <div style="margin-top:36px">
       <a class="cta" href="lianxi.html">联系官方助理</a>
       <a class="cta ghost" href="chashi.html" style="margin-left:12px">先看流程</a>
@@ -277,7 +795,7 @@ h1,h2,h3{text-wrap:balance}
   </section>
 </div>
 
-<div class="seaband" aria-hidden="true">
+<div class="seaband">
 
 <div class="moonpath" aria-hidden="true"></div>
 <div class="dropwrap"><img src="xiaoyudi-cutout-v4.png" alt="吉祥物 · 小雨滴"></div>
@@ -287,7 +805,7 @@ h1,h2,h3{text-wrap:balance}
   <div class="wrap">
     <div class="fbrand"><span class="seal">志远<br>行空</span>志远行空 · 陌语 Eunoia 官方站</div>
     <nav><a href="index.html">首页</a><a href="zhiyuan.html">志远行空</a><a href="moyu.html">陌语</a><a href="chashi.html">查事与流程</a><a href="lianxi.html">联系</a></nav>
-    <p class="fline">官方助理只有两个一对一渠道：Telegram @zyxk888、WhatsApp +44 07706 981476；投稿用 zyxk9999@gmail.com。其他自称官方助理的，都不是我们的人。</p>
+    <p class="fline">官方助理只有两个一对一渠道：Telegram <a href="https://t.me/zyxk888" target="_blank" rel="noopener">@zyxk888</a>、WhatsApp <a href="https://wa.me/4407706981476" target="_blank" rel="noopener">+44 07706 981476</a>；投稿用 zyxk9999@gmail.com。其他自称官方助理的，都不是我们的人。</p>
     <div class="fin"><span>志远行空 · 陌语 Eunoia</span><span>认准官方助理</span></div>
   </div>
 </footer>
