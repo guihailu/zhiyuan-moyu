@@ -328,3 +328,9 @@ footer .fin{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;f
 .bridge span{background:rgba(245,240,228,.78);padding:7px 16px;border-radius:999px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
 .bridge a{color:var(--red);text-decoration:underline;text-underline-offset:3px}
 .scaf{margin-top:10px;font-size:14px;color:var(--ink2)}
+
+/* ===== 排版同步沙盒（2026-11-13）：标题衡平 + 语义分段不断词 ===== */
+/* 定版结论：balance + strict + keep-all；.nb 锁短语；对齐方式沿用原样式
+   （本站标题左/中对齐各异，不统一改居中）；禁用 overflow-wrap。 */
+h1,h2,h3,.kick,.creed .q,.divider .cap,.statement .t,.notice .t,.tpl .tt,.biz .bk,.faq .q,.faq-tier,.ov6 .ov,.byline,.tcard .say,.imgband .cap .q,.imgband .cap .qs,.seaband .dropnote{text-wrap:balance;line-break:strict;word-break:keep-all}
+.nb{white-space:nowrap}
