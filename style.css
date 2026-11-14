@@ -329,6 +329,42 @@ footer .fin{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;f
 .bridge a{color:var(--red);text-decoration:underline;text-underline-offset:3px}
 .scaf{margin-top:10px;font-size:14px;color:var(--ink2)}
 
+/* ===== 查事页改版（2026-11-14 每日大进化轮次）：六步总览步进器＋时间轴＋模板卡片墙＋FAQ 档标＋另一条路 ===== */
+/* 只动 chashi.html 用到的类（.ov6/.tl/.step/.faq-tier 为查事页独有；.faq/.qa/.scaf 与首页/联系页共用处一律加 .pg-chashi 前缀隔离）。
+   文案零改：新增可见字只限导航锚点（下一步／先看模板预览／回到第四步／见本页末节）与由原文计得的计数徽标（× 项／× 问）。 */
+.ov6{position:relative}
+.ov6::before{content:"";position:absolute;top:29px;left:30px;right:30px;height:1px;background:var(--gold);opacity:.55;z-index:0}
+.ov6 div{padding:0}
+.ov6 a{display:block;padding:18px 14px 20px;text-decoration:none;position:relative;z-index:1;transition:.25s}
+.ov6 a:hover{background:rgba(169,52,31,.05)}
+.ov6 a:hover .ov{color:var(--red)}
+.ov6 .on{display:inline-block;background:var(--paper2);padding:0 8px;font-weight:700}
+@media(max-width:900px){.ov6::before{display:none}}
+.orpath{text-align:center;margin:20px 0 0;font-size:13.5px;letter-spacing:.06em;color:var(--ink2);line-height:2}
+.jumplink{color:var(--red);text-decoration:none;border-bottom:1px solid var(--red2);font-size:13px;letter-spacing:.1em}
+.jumplink:hover{color:var(--ink);border-bottom-color:var(--ink)}
+.orpath .jumplink{font-size:13.5px}
+.tl::before{width:2px;background:var(--gold);opacity:.55}
+.step .dot{background:var(--red);border:2px solid var(--paper2);box-shadow:0 0 0 1px var(--red)}
+.step .num{color:var(--red);font-weight:700}
+.pg-chashi .scaf{background:var(--paper);border:1px solid var(--hair2);border-left:3px solid var(--red);padding:14px 18px;margin-top:14px}
+.stepnext{display:inline-block;margin-top:14px;font-size:12.5px;letter-spacing:.14em;color:var(--red);text-decoration:none;border-bottom:1px solid var(--red2);padding-bottom:2px}
+.stepnext:hover{color:var(--ink);border-bottom-color:var(--ink)}
+.tplcats{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:22px}
+@media(max-width:760px){.tplcats{grid-template-columns:1fr}}
+.tcat{background:var(--paper2);border:1px solid var(--hair2);padding:20px 22px 18px;position:relative}
+.tcat::before{content:"";position:absolute;top:0;left:0;width:34px;height:3px;background:var(--red)}
+.tcat-h{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.tcat-h h3{font-family:var(--serif);font-weight:900;font-size:18px;letter-spacing:.06em}
+.tcount{font-size:11px;letter-spacing:.2em;color:var(--red);border:1px solid var(--red2);padding:3px 9px;white-space:nowrap}
+.tchips{margin-top:12px;display:flex;flex-wrap:wrap;gap:8px}
+.tchip{font-size:13px;color:var(--ink2);border:1px solid var(--hair2);background:var(--paper);padding:5px 11px;letter-spacing:.04em;line-height:1.6}
+.faq-count{font-size:11px;letter-spacing:.2em;color:var(--red);border:1px solid var(--red2);padding:2px 8px;margin-left:10px;white-space:nowrap;vertical-align:2px}
+.pg-chashi .qa.warn{background:rgba(169,52,31,.05);border:1px solid rgba(169,52,31,.45);padding-left:18px;padding-right:18px}
+.mopath{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:4px 0 20px}
+.mopath .mp{border:1px solid var(--ink);background:var(--paper2);padding:10px 20px;font-family:var(--serif);font-weight:700;font-size:16px;letter-spacing:.12em}
+.mopath .arr{color:var(--red);font-weight:900;font-size:18px}
+
 /* ===== 排版同步沙盒（2026-11-13）：标题衡平 + 语义分段不断词 ===== */
 /* 定版结论：balance + strict + keep-all；.nb 锁短语；对齐方式沿用原样式
    （本站标题左/中对齐各异，不统一改居中）；禁用 overflow-wrap。 */
