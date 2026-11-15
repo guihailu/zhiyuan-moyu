@@ -370,3 +370,33 @@ footer .fin{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;f
    （本站标题左/中对齐各异，不统一改居中）；禁用 overflow-wrap。 */
 h1,h2,h3,.kick,.creed .q,.divider .cap,.statement .t,.notice .t,.tpl .tt,.biz .bk,.faq .q,.faq-tier,.ov6 .ov,.byline,.tcard .say,.imgband .cap .q,.imgband .cap .qs,.seaband .dropnote{text-wrap:balance;line-break:strict;word-break:keep-all}
 .nb{white-space:nowrap}
+
+/* ===== 移动端整体改版（2026-11-15 每日大进化轮次）：只动 ≤768px 呈现，文案、桌面、背景、通画一律不动 ===== */
+/* 对标：draft/对标逆向_移动端改版_20261115.md（天善缘／Apple／Stripe／MDN，2026-11-15 当日实看）。
+   实测基线：390/360px CDP 实拍五页（.rv 滚动显现后取像）：横向溢出 0；实锤缺陷 4 项——
+   ①内页顶栏品牌名折两行（mast 高 75px，首页因内嵌 nowrap＋900 断点收窄为单行 54px）；
+   ②内页 .ch-head .en 在右侧挤成 88px 竖条（WHAT HE DOES／HER LIMITS／SIX STEPS 均两行竖排，首页同规则已在内嵌样式中修好）；
+   ③内页首屏导语末行落在山水带遮罩淡出区；④陌语页烛光带白字压亮烛身偏虚（用户 2026-11-14 截图所指，待眼判的对比度样稿同向，本轮只做 ≤640px 移动端加深）。
+   其余为节奏收紧：分区留白、卡片间距、点按区向 44px 靠。排版同步定版（balance＋strict＋keep-all）一律保留，改后重跑三宽量测。 */
+.mast .brand{white-space:nowrap}
+@media(max-width:900px){.mast{padding:10px 14px}.mast .brand{font-size:13px;letter-spacing:.12em;gap:8px}.mast .seal{width:30px;height:30px;font-size:10px}.mast nav a.navcta{padding:14px 14px;margin:-8px 0}}
+@media(max-width:560px){.ch-head{flex-wrap:wrap;row-gap:6px}.ch-head .en{margin-left:0;width:100%;order:3}}
+@media(max-width:640px){
+  section.ch{padding:64px 0 6px}
+  .divider{margin-top:64px}
+  .pband .inner{padding:64px 20px 64px}
+  .pband h1{font-size:clamp(32px,8.5vw,62px)}
+  .pband .lead{text-shadow:0 0 12px rgba(245,240,228,.9),0 0 3px rgba(245,240,228,.85)}
+  .body-copy p{line-height:2}
+  .facts .fr{padding:9px 14px;font-size:12.5px}
+  .biz-grid{gap:12px}
+  .biz{padding:20px}
+  .proj .pos{line-height:1.9}
+  .imgband img.bgi{height:300px}
+  .imgband .cap{background:linear-gradient(90deg,rgba(20,18,14,.72),rgba(20,18,14,.38) 55%,rgba(20,18,14,.72))}
+  .imgband .cap .q,.imgband .cap .qs{text-shadow:0 2px 12px rgba(0,0,0,.8),0 0 6px rgba(0,0,0,.6)}
+  .tchip{padding:8px 12px}
+  .faq .qa{gap:10px}
+  footer .fbrand{font-size:16px;letter-spacing:.08em;flex-wrap:wrap}
+  footer nav{gap:16px}
+}

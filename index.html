@@ -596,6 +596,43 @@ footer .fline a{color:#e8e2d2;text-decoration:underline;text-underline-offset:3p
 /* 768px +15px: photo halo (::before 330px) spills past the card; clip it at the card edge (visible glow radius stays inside) */
 .tcard{overflow-x:clip}
 </style>
+<style>
+/* ===== 移动端整体改版（2026-11-15 每日大进化轮次）：只动 ≤768px 呈现，文案、冻结区结构、背景、通画一律不动 ===== */
+/* 实测基线：390px CDP 实拍（.rv 滚动显现后取像）——首屏高 860px，主行动钮在首屏外；总览 .ch2 英文眉题在右侧挤成 101px 两行；
+   业务行名＋说明左右挤、每行 3 行；事实带单列四盒偏高；双路带上下留白偏大；360px 两颗星星粒子出框 2px（视觉被裁剪，仅探针读数超限）。
+   对标同 draft/对标逆向_移动端改版_20261115.md。未做：通画 object-fit 改 cover（背景冻结）、FAQ 折叠（动效与交互主题另轮）、
+   节内锚点条（新顶栏系统，另轮再议）、多档供图（需新图资产，另立项）。 */
+@media(max-width:640px){
+  .hero .inner{padding:60px 20px 48px}
+  .hero .kick{font-size:10.5px;letter-spacing:.3em;text-indent:.3em;margin-bottom:18px}
+  .hero h1{font-size:clamp(30px,8.5vw,36px);letter-spacing:.05em;line-height:1.5}
+  .hero .sub{margin-top:20px}
+  .hero .plainline{margin-top:16px}
+  .hero .acts{margin-top:26px;flex-direction:column;align-items:center;gap:12px}
+  .hero .acts .cta{width:100%;max-width:320px;text-align:center}
+  .humble{margin-top:18px}
+  .bridge{margin-top:12px}
+  section.ch{padding:64px 0 6px}
+  .divider{margin-top:64px}
+  .overview2 .col{padding:24px 20px 22px}
+  .overview2 .ov-row{gap:4px 10px;padding:12px 2px}
+  .overview2 .ov-row .k{min-width:0}
+  .overview2 .ov-row .d{flex-basis:100%}
+  .band-ink{padding:60px 0 56px}
+  .steps-h .sh{padding:12px 15px}
+  .path .pd{line-height:1.9}
+  .seaband{height:min(52vh,420px)}
+  footer .fbrand{font-size:16px;letter-spacing:.08em;flex-wrap:wrap}
+  footer nav{gap:16px}
+}
+@media(max-width:560px){
+  .overview2 .ch2{flex-wrap:wrap;row-gap:2px}
+  .overview2 .ch2 .ce{margin-left:0;width:100%}
+}
+@media(max-width:420px){
+  .fact{padding:18px 14px 16px}
+}
+</style>
 </head>
 <body>
 <div class="onepaint" aria-hidden="true"><img src="onepaint-2200.jpg" alt=""></div>
@@ -818,8 +855,8 @@ footer .fline a{color:#e8e2d2;text-decoration:underline;text-underline-offset:3p
   document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
 </script>
 <script>
-var d=document.getElementById('dust');for(var i=0;i<40;i++){var m=document.createElement('i');var s=2+Math.random()*4;m.style.width=s+'px';m.style.height=s+'px';m.style.left=(52+Math.random()*46)+'%';m.style.animationDuration=(7+Math.random()*8)+'s';m.style.animationDelay=(-Math.random()*10)+'s';d.appendChild(m)}
-var st=document.getElementById('stars');for(var j=0;j<70;j++){var g=document.createElement('i');var z=1+Math.random()*1.8;g.style.width=z+'px';g.style.height=z+'px';g.style.left=(Math.random()*100)+'%';g.style.top=(Math.random()*62)+'%';g.style.animationDuration=(2.4+Math.random()*3.4)+'s';g.style.animationDelay=(-Math.random()*4)+'s';st.appendChild(g);}
+var d=document.getElementById('dust');for(var i=0;i<40;i++){var m=document.createElement('i');var s=2+Math.random()*4;m.style.width=s+'px';m.style.height=s+'px';m.style.left=(52+Math.random()*44)+'%';m.style.animationDuration=(7+Math.random()*8)+'s';m.style.animationDelay=(-Math.random()*10)+'s';d.appendChild(m)}
+var st=document.getElementById('stars');for(var j=0;j<70;j++){var g=document.createElement('i');var z=1+Math.random()*1.8;g.style.width=z+'px';g.style.height=z+'px';g.style.left=(Math.random()*97)+'%';g.style.top=(Math.random()*62)+'%';g.style.animationDuration=(2.4+Math.random()*3.4)+'s';g.style.animationDelay=(-Math.random()*4)+'s';st.appendChild(g);}
 var b=document.getElementById('themebtn');b.addEventListener('click',function(){var n=document.documentElement.classList.toggle('night');b.firstChild.textContent=n?'☀️':'🌙';var lp=document.getElementById('lightpour');lp.classList.remove('pour');void lp.offsetWidth;lp.classList.add('pour');});
 </script>
 </body>
