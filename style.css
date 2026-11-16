@@ -95,10 +95,10 @@ section.ch{padding:88px 0 6px}
 .quote .src{display:block;margin-top:8px;font-family:var(--sans);font-size:12px;color:var(--faint);letter-spacing:.14em}
 
 /* 肖像框 4∶5（照片显示宽封顶 240px） */
-.frame{position:relative;aspect-ratio:4/5;max-width:240px;border:1px solid var(--ink);overflow:hidden;background:var(--paper2)}
-.frame::after{content:"";position:absolute;inset:9px;border:1px solid rgba(29,27,22,.3);pointer-events:none;z-index:2}
+.frame{position:relative;aspect-ratio:4/5;max-width:240px;border:1px solid var(--ink);overflow:hidden;background:var(--paper2);border-radius:120px 120px 0 0}
+.frame::after{content:"";position:absolute;inset:9px;border:1px solid rgba(29,27,22,.3);pointer-events:none;z-index:2;border-radius:111px 111px 0 0}
 .frame img{width:100%;height:100%;object-fit:cover;display:block}
-.figcap{display:flex;justify-content:space-between;gap:14px;max-width:240px;padding-top:11px;font-size:11.5px;letter-spacing:.16em;color:var(--faint)}
+.figcap{display:flex;justify-content:space-between;gap:14px;max-width:240px;padding-top:11px;font-size:12px;letter-spacing:.16em;color:#6b6455}
 .frame-art{position:relative;border:1px solid var(--hair2);overflow:hidden;background:var(--ink)}
 .frame-art img{width:100%;height:100%;object-fit:cover;display:block}
 
@@ -111,7 +111,7 @@ section.ch{padding:88px 0 6px}
 .facts .fr:last-child{border-bottom:none}
 .facts .fk{font-family:var(--serif);font-weight:700;letter-spacing:.14em;min-width:58px;color:var(--ink)}
 .facts .fv{color:var(--ink2);line-height:1.8}
-.byline{font-size:12px;letter-spacing:.18em;color:var(--faint);border-top:1px solid var(--red);padding-top:12px;margin-bottom:14px}
+.byline{font-size:12px;letter-spacing:.18em;color:#6b6455;border-top:1px solid var(--red);padding-top:12px;margin-bottom:14px}
 .byline b{color:var(--ink);font-family:var(--serif);letter-spacing:.08em}
 .body-copy p{font-size:15px;line-height:2.15;color:var(--ink2);margin-bottom:18px;max-width:700px}
 .body-copy p b{color:var(--ink)}
@@ -176,14 +176,14 @@ section.ch{padding:88px 0 6px}
 .imgband{position:relative;margin-top:110px;overflow:hidden;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}
 .imgband img.bgi{width:100%;height:430px;object-fit:cover;display:block}
 .imgband .cap{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:0 24px;
-  background:linear-gradient(90deg,rgba(20,18,14,.55),rgba(20,18,14,.15) 55%,rgba(20,18,14,.55))}
-.imgband .cap .q{font-family:var(--serif);font-weight:700;font-size:clamp(21px,3.4vw,32px);letter-spacing:.1em;line-height:1.7;color:#f7f2e3;max-width:760px}
-.imgband .cap .qs{margin-top:14px;font-size:12px;letter-spacing:.34em;color:var(--gold2)}
+  background:radial-gradient(ellipse 62% 78% at 50% 50%,rgba(20,18,14,.6),rgba(20,18,14,0) 72%),linear-gradient(90deg,rgba(20,18,14,.62),rgba(20,18,14,.25) 55%,rgba(20,18,14,.62))}
+.imgband .cap .q{font-family:var(--serif);font-weight:700;font-size:clamp(21px,3.4vw,32px);letter-spacing:.1em;line-height:1.7;color:#f7f2e3;max-width:760px;text-shadow:0 2px 12px rgba(0,0,0,.8),0 0 6px rgba(0,0,0,.6)}
+.imgband .cap .qs{margin-top:14px;font-size:13px;font-weight:700;letter-spacing:.34em;color:#ecd28a;text-shadow:0 2px 12px rgba(0,0,0,.8),0 0 6px rgba(0,0,0,.6)}
 .imgband .cap .cta{margin-top:28px}
 @media(max-width:640px){.imgband img.bgi{height:340px}}
 
 /* 业务卡阵（人物页） */
-.biz-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.biz-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;align-items:start}
 @media(max-width:760px){.biz-grid{grid-template-columns:1fr}}
 .biz{background:var(--paper2);border:1px solid var(--hair2);padding:24px 26px 22px;position:relative;transition:.25s}
 .biz:hover{border-color:var(--ink);transform:translateY(-2px)}
@@ -200,7 +200,7 @@ section.ch{padding:88px 0 6px}
 .proj h3{font-family:var(--serif);font-weight:900;font-size:clamp(21px,2.6vw,25px);letter-spacing:.08em}
 .proj .pos{margin-top:10px;font-size:15px;line-height:2;color:var(--ink);max-width:760px}
 .proj .fit{margin-top:12px}
-.proj .fit .fl{font-size:11px;letter-spacing:.4em;color:var(--faint);margin-bottom:8px}
+.proj .fit .fl{font-size:12px;letter-spacing:.4em;color:#6f5f33;font-weight:700;margin-bottom:8px}
 .proj .fit ul{list-style:none}
 .proj .fit li{font-size:14px;line-height:1.95;color:var(--ink2);padding-left:18px;position:relative}
 .proj .fit li::before{content:"";position:absolute;left:0;top:13px;width:7px;height:1px;background:var(--red)}
@@ -393,10 +393,35 @@ h1,h2,h3,.kick,.creed .q,.divider .cap,.statement .t,.notice .t,.tpl .tt,.biz .b
   .biz{padding:20px}
   .proj .pos{line-height:1.9}
   .imgband img.bgi{height:300px}
-  .imgband .cap{background:linear-gradient(90deg,rgba(20,18,14,.72),rgba(20,18,14,.38) 55%,rgba(20,18,14,.72))}
-  .imgband .cap .q,.imgband .cap .qs{text-shadow:0 2px 12px rgba(0,0,0,.8),0 0 6px rgba(0,0,0,.6)}
+  .imgband .cap{background:radial-gradient(ellipse 62% 78% at 50% 50%,rgba(20,18,14,.65),rgba(20,18,14,0) 72%),linear-gradient(90deg,rgba(20,18,14,.72),rgba(20,18,14,.38) 55%,rgba(20,18,14,.72))}
   .tchip{padding:8px 12px}
   .faq .qa{gap:10px}
   footer .fbrand{font-size:16px;letter-spacing:.08em;flex-wrap:wrap}
   footer nav{gap:16px}
+}
+
+/* ===== 人物页改版（2026-11-16 每日大进化轮次）：业务分组＋肖像拱形＋称号牌＋标签提亮 ===== */
+/* 对标：draft/对标逆向_人物页改版_20261116.md（Revamp／Coachful／Dahlia／Hope Gaston／Cactal，2026-11-16 当日实看）。
+   只动两人物页：.biz-group/.rule-line/.avatar-note/.pg-person 为本轮新增；.frame/.figcap/.byline/.proj .fit .fl/.imgband
+   在 style.css 内只被 zhiyuan.html 与 moyu.html 引用（index.html 自包含、不链 style.css，首页不受影响）。
+   文案零改：组标题只用页内已有词（诊断／处置／静心与讲学／蜡烛／净化·祈福·疗愈／探查），计数由原文计得；
+   规则句逐字保留一次（清单段首），单项卡内重复行删除；CTA 均为既有文案原样复用。
+   未做：S5 段首小标题（须移句或加新词，越过文案零改线）；S6 折叠收纳（违本站「一次写清」，2026-11-14 已否决手风琴）；
+   S1 志远行空卡加「适合什么」字段（无出处内容可填，不编造）；蜡烛 band 移组间（带子留在原位，组间只以间距羽化过渡）。 */
+.biz-group{margin-top:36px}
+.biz-group:first-of-type{margin-top:0}
+.biz-group-h{display:flex;align-items:baseline;gap:14px;border-bottom:1px solid var(--hair2);padding-bottom:12px;margin-bottom:20px}
+.biz-group-h h3{font-family:var(--serif);font-weight:900;font-size:21px;letter-spacing:.1em}
+.biz-group-h .count{margin-left:auto;font-size:11px;letter-spacing:.2em;color:var(--red);border:1px solid var(--red2);padding:3px 9px;white-space:nowrap}
+.rule-line{margin-top:20px;font-size:12.5px;letter-spacing:.12em;color:var(--red)}
+.person-layout .ptag{display:inline-block;background:var(--red);color:#f5f0e4;font-size:12.5px;letter-spacing:.34em;text-indent:.34em;padding:6px 16px 6px 18px;font-family:var(--serif)}
+.avatar-note{max-width:240px;margin:56px auto 0;text-align:center}
+.avatar-note .frame-art{max-width:240px;aspect-ratio:1/1;margin:0 auto}
+.avatar-note .figcap{max-width:240px}
+.pg-person .pband .lead{text-shadow:0 0 12px rgba(245,240,228,.9),0 0 3px rgba(245,240,228,.85)}
+@media(max-width:860px){
+  .person-layout .side{text-align:center}
+  .person-layout .side .frame{margin:0 auto}
+  .person-layout .side .figcap{justify-content:center}
+  .person-layout .side .facts{margin-left:auto;margin-right:auto;text-align:left}
 }
