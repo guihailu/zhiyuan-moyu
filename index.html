@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f5f0e4">
 <title>志远行空 · 陌语 Eunoia 官方站</title>
 <meta name="description" content="志远行空与陌语 Eunoia 的官方站：两个人是谁、各自能做什么、有哪些项目、办事每一步怎么走，都写在这里。">
 <style>
@@ -23,6 +24,12 @@ body{background-color:var(--paper);color:var(--ink);font-family:var(--sans);-web
 a{color:inherit}
 img{max-width:100%}
 ::selection{background:var(--red);color:var(--paper)}
+/* 跳过导航链接（2026-11-17 性能与无障碍轮）：平时隐藏，键盘获焦才现身 */
+.skip{position:absolute;left:16px;top:-64px;z-index:100;background:var(--red);color:#fff;padding:10px 18px;font-size:14px;letter-spacing:.12em;text-decoration:none;transition:top .2s}
+.skip:focus{top:12px}
+/* 键盘焦点（2026-11-17 性能与无障碍轮）：朱砂轮廓＋纸色光晕双保险，深底浅底都可见 */
+:focus-visible{outline:3px solid var(--red);outline-offset:2px;box-shadow:0 0 0 5px rgba(245,240,228,.85)}
+
 .wrap{max-width:1160px;margin:0 auto;padding:0 30px}
 @media(max-width:640px){.wrap{padding:0 20px}}
 
@@ -516,7 +523,7 @@ footer nav a{display:inline-block;padding:13px 2px}
 .mast nav a{display:inline-block;padding:14px 2px;margin:-14px 0}
 .mast nav a.navcta{padding:14px 14px;margin:-8px 0}
 /* G27 reduced motion: every endless animation stops, static picture stays */
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rays,.dust i,.stars i,.moonpath{animation:none}.dust i{opacity:0}.stars i{opacity:.6}.themebtn{transition:none}.lightpour.pour{animation:none;opacity:0}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rays,.dust i,.stars i,.moonpath{animation:none}.dust i{opacity:0}.stars i{opacity:.6}.themebtn{transition:none}.lightpour.pour{animation:none;opacity:0}.skip{transition:none}}
 /* seaband: 100% width removes the pre-existing +15px overflow at 768px */
 .seaband{width:100%;margin-left:0}
 /* G2 verify anchor + benchmark 7 anchor nav */
@@ -633,25 +640,28 @@ footer .fline a{color:#e8e2d2;text-decoration:underline;text-underline-offset:3p
   .fact{padding:18px 14px 16px}
 }
 </style>
+<noscript><style>.rv{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body>
-<div class="onepaint" aria-hidden="true"><img src="onepaint-2200.jpg" alt=""></div>
+<a class="skip" href="#main">跳到正文</a>
+<div class="onepaint" aria-hidden="true"><img src="onepaint-2200.jpg" alt="" width="2200" height="7260" decoding="async" fetchpriority="high"></div>
 <div class="lightpour" id="lightpour" aria-hidden="true"></div>
 <div class="sealbg" aria-hidden="true">观自在菩萨行深般若波罗蜜多时照见五蕴皆空度一切苦厄舍利子色不异空空不异色色即是空空即是色受想行识亦复如是舍利子是诸法空相不生不灭不垢不净不增不减是故空中无色无受想行识无眼耳鼻舌身意无色声香味触法无眼界乃至无意识界无无明亦无无明尽乃至无老死亦无老死尽无苦集灭道无智亦无得以无所得故菩提萨埵依般若波罗蜜多故心无挂碍无挂碍故无有恐怖远离颠倒梦想究竟涅槃三世诸佛依般若波罗蜜多故得阿耨多罗三藐三菩提故知般若波罗蜜多是大神咒是大明咒是无上咒是无等等咒能除一切苦真实不虚故说般若波罗蜜多咒即说咒曰揭谛揭谛波罗揭谛波罗僧揭谛菩提萨婆诃观自在菩萨行深般若波罗蜜多时照见五蕴皆空度一切苦厄舍利子色不异空空不异色色即是空空即是色受想行识亦复如是舍利子是诸法空相不生不灭不垢不净不增不减是故空中无色无受想行识无眼耳鼻舌身意无色声香味触法无眼界乃至无意识界无无明亦无无明尽乃至无老死亦无老死尽无苦集灭道无智亦无得以无所得故菩提萨埵依般若波罗蜜多故心无挂碍无挂碍故无有恐怖远离颠倒梦想究竟涅槃三世诸佛依般若波罗蜜多故得阿耨多罗三藐三菩提故知般若波罗蜜多是大神咒是大明咒是无上咒是无等等咒能除一切苦真实不虚故说般若波罗蜜多咒即说咒曰揭谛揭谛波罗揭谛波罗僧揭谛菩提萨婆诃观自在菩萨行深般若波罗蜜多时照见五蕴皆空度一切苦厄舍利子色不异空空不异色色即是空空即是色受想行识亦复如是舍利子是诸法空相不生不灭不垢不净不增不减是故空中无色无受想行识无眼耳鼻舌身意无色声香味触法无眼界乃至无意识界无无明亦无无明尽乃至无老死亦无老死尽无苦集灭道无智亦无得以无所得故菩提萨埵依般若波罗蜜多故心无挂碍无挂碍故无有恐怖远离颠倒梦想究竟涅槃三世诸佛依般若波罗蜜多故得阿耨多罗三藐三菩提故知般若波罗蜜多是大神咒是大明咒是无上咒是无等等咒能除一切苦真实不虚故说般若波罗蜜多咒即说咒曰揭谛揭谛波罗揭谛波罗僧揭谛菩提萨婆诃观自在菩萨行深般若波罗蜜多时照见五蕴皆空度一切苦厄舍利子色不异空空不异色色即是空空即是色受想行识亦复如是舍利子是诸法空相不生不灭不垢不净不增不减是故空中无色无受想行识无眼耳鼻舌身意无色声香味触法无眼界乃至无意识界无无明亦无无明尽乃至无老死亦无老死尽无苦集灭道无智亦无得以无所得故菩提萨埵依般若波罗蜜多故心无挂碍无挂碍故无有恐怖远离颠倒梦想究竟涅槃三世诸佛依般若波罗蜜多故得阿耨多罗三藐三菩提故知般若波罗蜜多是大神咒是大明咒是无上咒是无等等咒能除一切苦真实不虚故说般若波罗蜜多咒即说咒曰揭谛揭谛波罗揭谛波罗僧揭谛菩提萨婆诃</div>
 
 <header class="mast">
   <a class="brand" href="index.html"><span class="seal">志远<br>行空</span>志远行空 <b>×</b> 陌语 Eunoia</a>
-  <nav>
+  <nav aria-label="站内导航">
     <a href="index.html" class="here">首页</a><a href="zhiyuan.html">志远行空</a><a href="moyu.html">陌语</a><a href="chashi.html">查事与流程</a><a href="lianxi.html">联系</a><a class="navcta" href="lianxi.html">官方助理</a>
   </nav>
 </header>
 
+<main id="main" tabindex="-1">
 <!-- 主视觉（用户定版：法脉主标版，2026-11-11 落地） -->
 <div class="hero">
 <div class="rays" aria-hidden="true"></div><div class="dust" id="dust" aria-hidden="true"></div><div class="stars" id="stars" aria-hidden="true"></div><div class="moonglow" aria-hidden="true"></div>
   
   <div class="inner">
-    <div class="kick"><span class="nb">志 远 行 空 ·</span> <span class="nb">陌 语</span> <span class="nb">E U N O I A</span> <span class="nb">官 方 站</span></div>
+    <div class="kick"><span class="nb">志 远 行 空 ·</span> <span class="nb">陌 语</span> <span class="nb" lang="en">E U N O I A</span> <span class="nb">官 方 站</span></div>
     <h1>一脉阴阳断困局<br>一脉金火涤灵台</h1>
     <p class="sub">事上的困局，心里的卡点——感情、事业、健康、家宅里说不清的反复，灵魂与能量上过不去的结，先在这里问清，再看怎么办。</p>
     <p class="plainline">能办的事分两边：志远行空查事，先找出问题；陌语问诊疗愈，先问诊、后预约。第一步，都是联系官方助理。</p>
@@ -707,7 +717,7 @@ footer .fline a{color:#e8e2d2;text-decoration:underline;text-underline-offset:3p
 
   <div class="tcard" id="teachers">
     <div class="tphoto">
-      <div class="frame"><img src="zhiyuan-official-portrait.png" alt="志远行空官方照片"></div>
+      <div class="frame"><img src="zhiyuan-official-portrait.png" alt="志远行空官方照片" width="599" height="897" loading="lazy" decoding="async"></div>
       <span class="ptag">特邀疗愈师</span>
     </div>
     <div class="tbody">
@@ -721,11 +731,11 @@ footer .fline a{color:#e8e2d2;text-decoration:underline;text-underline-offset:3p
 
   <div class="tcard flip">
     <div class="tphoto">
-      <div class="frame"><img src="moyu-official-portrait.png" alt="陌语官方照片"></div>
+      <div class="frame"><img src="moyu-official-portrait.png" alt="陌语官方照片" width="595" height="897" loading="lazy" decoding="async"></div>
       <span class="ptag">明星疗愈师</span>
     </div>
     <div class="tbody">
-      <h3>陌语<span class="en">EUNOIA</span></h3>
+      <h3>陌语<span class="en" lang="en">EUNOIA</span></h3>
       <p class="say"><span class="nb">能量温和，不代表能量弱。</span></p>
       <div class="fld"><span class="fl">传承特质：</span><p>上古天巫传人，金火本源。做的是深层剥离、重塑与边界重建，是灵魂的能量破局者。</p></div>
       <div class="fld"><span class="fl">能解的问题：</span><p>人生里反复出现的卡点、关系与情绪上的困境、能量与脉轮状态、孩子与家庭结构的问题。先问诊、后预约，以许愿蜡烛、能量阵蜡烛、佛眼智轮、能量净化与祈福等方式处理。</p></div>
@@ -746,7 +756,7 @@ footer .fline a{color:#e8e2d2;text-decoration:underline;text-underline-offset:3p
   <section class="ch rv" id="overview" style="padding-top:56px">
     <div class="overview2">
       <div class="col">
-        <div class="ch2"><h3>志远<span class="nb">行空 ·</span><wbr> 传统业务</h3><span class="ce">WHAT HE DOES</span></div>
+        <div class="ch2"><h3>志远<span class="nb">行空 ·</span><wbr> 传统业务</h3><span class="ce" lang="en">WHAT HE DOES</span></div>
         <a class="ov-row" href="zhiyuan.html"><span class="k">查事</span><span class="d">找出问题——先看清风险与优势，再决定怎么动</span></a>
         <a class="ov-row" href="zhiyuan.html"><span class="k">每日回卦</span><span class="d">每天回复问询，逐一给出卦象结论与建议。</span></a>
         <a class="ov-row" href="zhiyuan.html"><span class="k">年命卦</span><span class="tag">过年期间</span><span class="d">每年过年期间，集中为求问者看年命卦</span></a>
@@ -758,7 +768,7 @@ footer .fline a{color:#e8e2d2;text-decoration:underline;text-underline-offset:3p
         <div class="more"><a class="cta ghost" href="zhiyuan.html">逐条看说明</a></div>
       </div>
       <div class="col">
-        <div class="ch2"><h3><span class="nb">陌语 ·</span><wbr> 天巫项目</h3><span class="ce">ALL PROJECTS</span></div>
+        <div class="ch2"><h3><span class="nb">陌语 ·</span><wbr> 天巫项目</h3><span class="ce" lang="en">ALL PROJECTS</span></div>
         <a class="ov-row" href="moyu.html"><span class="k">许愿蜡烛</span><span class="d">PLUS 版 150g 与体验版约 75g，按人单独配置</span></a>
         <a class="ov-row" href="moyu.html"><span class="k">能量阵蜡烛</span><span class="d">一套 3 支，配植物、水晶与能量符纸，一支一支点</span></a>
         <a class="ov-row" href="moyu.html"><span class="k">七灵根蜡烛</span><span class="tag">限量</span><span class="d">一套 7 支，对应七灵根，限量、无法量产</span></a>
@@ -777,7 +787,7 @@ footer .fline a{color:#e8e2d2;text-decoration:underline;text-underline-offset:3p
 <!-- 双路流程（墨色带） -->
 <div class="band-ink" id="paths">
   <div class="wrap">
-    <div class="ch-head"><span class="no">对接</span><h2>怎么办，<wbr>分几步？</h2><span class="en">TWO PATHS</span></div>
+    <div class="ch-head"><span class="no">对接</span><h2>怎么办，<wbr>分几步？</h2><span class="en" lang="en">TWO PATHS</span></div>
     <div class="paths">
       <div class="path rv">
         <h3><span class="nb">查事，</span><wbr>走六步<span class="who">志 远 行 空</span></h3>
@@ -812,7 +822,7 @@ footer .fline a{color:#e8e2d2;text-decoration:underline;text-underline-offset:3p
 
 <div class="wrap">
   <section class="ch rv" id="safety">
-    <div class="ch-head"><span class="no">防骗</span><h2>怎么认出骗子？</h2><span class="en">BEWARE OF FAKES</span></div>
+    <div class="ch-head"><span class="no">防骗</span><h2>怎么认出骗子？</h2><span class="en" lang="en">BEWARE OF FAKES</span></div>
     <div class="statement">
       <div class="t">严正声明</div>
       <p>志远行空本人在中国大陆地区没有任何自己的频道，也绝不会把内容发布到中国大陆地区。凡在中国大陆自称是他本人、他的代理或助手、承接业务，或者卖雷击木手串等的，都是骗人的，请勿上当。</p>
@@ -835,29 +845,30 @@ footer .fline a{color:#e8e2d2;text-decoration:underline;text-underline-offset:3p
 <div class="seaband">
 
 <div class="moonpath" aria-hidden="true"></div>
-<div class="dropwrap"><img src="xiaoyudi-cutout-v4.png" alt="吉祥物 · 小雨滴"></div>
+<div class="dropwrap"><img src="xiaoyudi-cutout-v4.png" alt="" width="480" height="469" loading="lazy" decoding="async"></div>
 <div class="dropnote"><span class="dropcap">吉祥物 · 小雨滴：一滴乘舟归海的水<wbr></span>所有的水无论如何<span class="nb">轮回，</span><wbr>做何<span class="nb">型态，</span><wbr>皆源起<span class="nb">于海，</span><wbr>也必终于海</div>
 </div>
+</main>
 <footer>
   <div class="wrap">
     <div class="fbrand"><span class="seal">志远<br>行空</span>志远行空 · 陌语 Eunoia 官方站</div>
-    <nav><a href="index.html">首页</a><a href="zhiyuan.html">志远行空</a><a href="moyu.html">陌语</a><a href="chashi.html">查事与流程</a><a href="lianxi.html">联系</a></nav>
+    <nav aria-label="页脚导航"><a href="index.html">首页</a><a href="zhiyuan.html">志远行空</a><a href="moyu.html">陌语</a><a href="chashi.html">查事与流程</a><a href="lianxi.html">联系</a></nav>
     <p class="fline">官方助理只有两个一对一渠道：Telegram <a href="https://t.me/zyxk888" target="_blank" rel="noopener">@zyxk888</a>、WhatsApp <a href="https://wa.me/4407706981476" target="_blank" rel="noopener">+44 07706 981476</a>；投稿用 zyxk9999@gmail.com。其他自称官方助理的，都不是我们的人。</p>
     <div class="fin"><span>志远行空 · 陌语 Eunoia</span><span>认准官方助理</span></div>
   </div>
 </footer>
 
 <!-- 日夜钮须为 body 直接子元素：放在 .hero 里会被其 z-index:1 层叠上下文压住，滑到下方内容时点不到。 -->
-<button class="themebtn" id="themebtn" type="button" aria-label="切换白天与晚上">🌙</button>
+<button class="themebtn" id="themebtn" type="button" aria-label="切换白天与晚上" aria-pressed="false">🌙</button>
 
 <script>
-  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})},{threshold:.06});
-  document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+  var __rv=document.querySelectorAll('.rv');
+  if(!('IntersectionObserver' in window)){__rv.forEach(function(el){el.classList.add('on')});}else{var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})},{threshold:.06});__rv.forEach(function(el){io.observe(el)});}
 </script>
 <script>
 var d=document.getElementById('dust');for(var i=0;i<40;i++){var m=document.createElement('i');var s=2+Math.random()*4;m.style.width=s+'px';m.style.height=s+'px';m.style.left=(52+Math.random()*44)+'%';m.style.animationDuration=(7+Math.random()*8)+'s';m.style.animationDelay=(-Math.random()*10)+'s';d.appendChild(m)}
 var st=document.getElementById('stars');for(var j=0;j<70;j++){var g=document.createElement('i');var z=1+Math.random()*1.8;g.style.width=z+'px';g.style.height=z+'px';g.style.left=(Math.random()*97)+'%';g.style.top=(Math.random()*62)+'%';g.style.animationDuration=(2.4+Math.random()*3.4)+'s';g.style.animationDelay=(-Math.random()*4)+'s';st.appendChild(g);}
-var b=document.getElementById('themebtn');b.addEventListener('click',function(){var n=document.documentElement.classList.toggle('night');b.firstChild.textContent=n?'☀️':'🌙';var lp=document.getElementById('lightpour');lp.classList.remove('pour');void lp.offsetWidth;lp.classList.add('pour');});
+var b=document.getElementById('themebtn');b.addEventListener('click',function(){var n=document.documentElement.classList.toggle('night');b.firstChild.textContent=n?'☀️':'🌙';b.setAttribute('aria-pressed',n?'true':'false');var lp=document.getElementById('lightpour');lp.classList.remove('pour');void lp.offsetWidth;lp.classList.add('pour');});
 </script>
 </body>
 </html>

@@ -3,21 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f5f0e4">
 <title>联系 —— 只认官方助理</title>
 <meta name="description" content="官方助理只有 Telegram 与 WhatsApp 两个一对一渠道，投稿用邮箱。其余以这两位名义联系你的，都是假的。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&family=Noto+Sans+SC:wght@400;500;700&display=swap">
 <link rel="stylesheet" href="style.css">
+<noscript><style>.rv{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body>
+<a class="skip" href="#main">跳到正文</a>
 
 <header class="mast">
   <a class="brand" href="index.html"><span class="seal">志远<br>行空</span>志远行空 <b>×</b> 陌语 Eunoia</a>
-  <nav>
+  <nav aria-label="站内导航">
     <a href="index.html">首页</a><a href="zhiyuan.html">志远行空</a><a href="moyu.html">陌语</a><a href="chashi.html">查事与流程</a><a href="lianxi.html" class="here">联系</a><a class="navcta" href="lianxi.html">官方助理</a>
   </nav>
 </header>
 
+<main id="main" tabindex="-1">
 <div class="pband center">
-  <img class="bgimg" src="hero-mountains.jpg" alt="水墨远山">
+  <img class="bgimg" src="hero-mountains.jpg" alt="" width="2736" height="912" decoding="async" fetchpriority="high">
   <div class="inner">
     <div class="kick">联 <span class="nb">系 ·</span><wbr> 官 方 助 理</div>
     <h1>只认官方助理<wbr>这三个<span class="nb">渠道。</span></h1>
@@ -32,12 +39,12 @@
   <section class="ch rv">
     <div class="chan-cards">
       <div class="chan-card">
-        <div class="cl">TELEGRAM</div>
+        <div class="cl" lang="en">TELEGRAM</div>
         <div class="cv"><a href="https://t.me/zyxk888" target="_blank" rel="noopener">@zyxk888</a></div>
         <div class="cu">官方助理一对一。查事咨询、陌语问诊、进群对接，都从这里开始。</div>
       </div>
       <div class="chan-card">
-        <div class="cl">WHATSAPP</div>
+        <div class="cl" lang="en">WHATSAPP</div>
         <div class="cv"><a href="https://wa.me/4407706981476" target="_blank" rel="noopener">+44 07706 981476</a></div>
         <div class="cu">官方助理一对一联系号（这是助理的联系号，不是群邀请链接）。用途同上，选顺手的渠道即可。</div>
       </div>
@@ -55,7 +62,7 @@
   <div class="divider"><div class="dmark"><span class="dseal">貳</span></div><div class="cap">防 骗 声 <span class="nb">明 ·</span><wbr> 再 看 一 遍</div></div>
 
   <section class="ch rv">
-    <div class="ch-head"><span class="no">声明</span><h2>防骗<span class="nb">声明 ·</span><wbr> 官方渠道复述</h2><span class="en">BEWARE OF FAKES</span></div>
+    <div class="ch-head"><span class="no">声明</span><h2>防骗<span class="nb">声明 ·</span><wbr> 官方渠道复述</h2><span class="en" lang="en">BEWARE OF FAKES</span></div>
     <div class="statement">
       <div class="t">严正声明</div>
       <p>志远行空本人在中国大陆地区没有任何自己的频道，也绝不会把内容发布到中国大陆地区。凡在中国大陆自称是他本人、他的代理或助手、承接业务，或者卖雷击木手串等的，都是骗人的，请勿上当。</p>
@@ -63,19 +70,20 @@
     </div>
   </section>
 </div>
+</main>
 
 <footer>
   <div class="wrap">
     <div class="fbrand"><span class="seal">志远<br>行空</span>志远行空 · 陌语 Eunoia 官方站</div>
-    <nav><a href="index.html">首页</a><a href="zhiyuan.html">志远行空</a><a href="moyu.html">陌语</a><a href="chashi.html">查事与流程</a><a href="lianxi.html">联系</a></nav>
+    <nav aria-label="页脚导航"><a href="index.html">首页</a><a href="zhiyuan.html">志远行空</a><a href="moyu.html">陌语</a><a href="chashi.html">查事与流程</a><a href="lianxi.html">联系</a></nav>
     <p class="fline">官方助理只有两个一对一渠道：Telegram @zyxk888、WhatsApp +44 07706 981476；投稿用 zyxk9999@gmail.com。其他自称官方助理的，都不是我们的人。</p>
     <div class="fin"><span>志远行空 · 陌语 Eunoia</span><span>认准官方助理</span></div>
   </div>
 </footer>
 
 <script>
-  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})},{threshold:.06});
-  document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+  var __rv=document.querySelectorAll('.rv');
+  if(!('IntersectionObserver' in window)){__rv.forEach(function(el){el.classList.add('on')});}else{var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})},{threshold:.06});__rv.forEach(function(el){io.observe(el)});}
 </script>
 </body>
 </html>
