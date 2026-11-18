@@ -20,17 +20,6 @@
   <nav aria-label="站内导航">
     <a href="index.html">首页</a><a href="zhiyuan.html">志远行空</a><a href="moyu.html">陌语</a><a href="chashi.html">查事与流程</a><a href="lianxi.html" class="here">联系</a><a class="navcta" href="lianxi.html">官方助理</a>
   </nav>
-  <details class="mobile-nav">
-    <summary>菜单</summary>
-    <div class="mobile-nav-panel" role="navigation" aria-label="手机站内导航">
-    <a href="index.html">首页</a>
-    <a href="zhiyuan.html">志远行空</a>
-    <a href="moyu.html">陌语</a>
-    <a href="chashi.html">查事与流程</a>
-    <a href="lianxi.html" aria-current="page">联系</a>
-    <a href="lianxi.html">官方助理</a>
-    </div>
-  </details>
 </header>
 
 <main id="main" tabindex="-1">
@@ -45,9 +34,11 @@
 
 <div class="wrap">
 
+  <nav class="subnav" aria-label="本页目录"><a href="#channels">三个渠道</a><a href="#safety">防骗声明</a></nav>
+
   <div class="divider"><div class="dmark"><span class="dseal">壹</span></div><div class="cap">官 方 渠 <span class="nb">道 ·</span><wbr> 各 标 用 途</div></div>
 
-  <section class="ch rv">
+  <section class="ch rv" id="channels">
     <div class="chan-cards">
       <div class="chan-card">
         <div class="cl" lang="en">TELEGRAM</div>
@@ -72,7 +63,7 @@
 
   <div class="divider"><div class="dmark"><span class="dseal">貳</span></div><div class="cap">防 骗 声 <span class="nb">明 ·</span><wbr> 再 看 一 遍</div></div>
 
-  <section class="ch rv">
+  <section class="ch rv" id="safety">
     <div class="ch-head"><span class="no">声明</span><h2>防骗<span class="nb">声明 ·</span><wbr> 官方渠道复述</h2><span class="en" lang="en">BEWARE OF FAKES</span></div>
     <div class="statement">
       <div class="t">严正声明</div>
@@ -92,9 +83,37 @@
   </div>
 </footer>
 
+<a class="totop" href="#main" aria-label="回到顶部">↑ 回顶</a>
+
 <script>
   var __rv=document.querySelectorAll('.rv');
-  if(!('IntersectionObserver' in window)){__rv.forEach(function(el){el.classList.add('on')});}else{var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})},{threshold:.06});__rv.forEach(function(el){io.observe(el)});}
+  var __reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(__reduce||!('IntersectionObserver' in window)){__rv.forEach(function(el){el.classList.add('on')});}else{var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})},{threshold:.12});__rv.forEach(function(el){io.observe(el)});}
+/* 动效与交互轮（2026-11-18）：回顶＋吸顶细线＋目录高亮＋锚点焦点（渐进增强，JS 失效时锚点仍可用） */
+(function(){
+  var totop=document.querySelector('.totop'),mast=document.querySelector('.mast');
+  function onScroll(){
+    var y=window.scrollY||window.pageYOffset||0;
+    var maxY=document.body.scrollHeight-window.innerHeight;
+    var th=Math.min(window.innerHeight*1.5,maxY*0.6);
+    if(mast)mast.classList.toggle('scrolled',y>200);
+    if(totop)totop.classList.toggle('show',maxY>300&&y>th&&(maxY-y)>120);
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  onScroll();
+  var links=document.querySelectorAll('.pagenav a,.subnav a'),map={},keys=[];
+  links.forEach(function(a){var h=a.getAttribute('href');if(h&&h.charAt(0)==='#'){var t=document.querySelector(h);if(t){map[h]=t;keys.push(h);t.setAttribute('tabindex','-1');}}});
+  if(keys.length&&'IntersectionObserver' in window){
+    var sio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(a){a.removeAttribute('aria-current');});var m=document.querySelector('.pagenav a[href="#'+e.target.id+'"],.subnav a[href="#'+e.target.id+'"]');if(m)m.setAttribute('aria-current','true');}});},{rootMargin:'-15% 0px -60% 0px'});
+    keys.forEach(function(k){sio.observe(map[k]);});
+  }
+  document.addEventListener('click',function(ev){
+    var a=ev.target.closest?ev.target.closest('.pagenav a,.subnav a'):null;
+    if(!a)return;
+    var h=a.getAttribute('href'),t=h&&h.charAt(0)==='#'?document.querySelector(h):null;
+    if(t&&t.focus)t.focus({preventScroll:true});
+  });
+})();
 </script>
 </body>
 </html>
