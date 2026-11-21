@@ -354,6 +354,20 @@ footer .fin{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;f
 h1,h2,h3,.kick,.creed .q,.divider .cap,.statement .t,.notice .t,.tpl .tt,.biz .bk,.faq .q,.faq-tier,.ov6 .ov,.byline,.tcard .say,.imgband .cap .q,.imgband .cap .qs,.seaband .dropnote{text-wrap:balance;line-break:strict;word-break:keep-all}
 .nb{white-space:nowrap}
 
+
+/* T32: 手机端可访问的站内菜单；桌面导航保持原样。上线前需 360/390/768px 真机验收。 */
+.mobile-nav{display:none}
+@media(max-width:900px){
+  .mast nav{display:none}
+  .mobile-nav{display:block;position:relative;z-index:65;margin-left:8px;flex:none}
+  .mobile-nav summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:center;min-height:44px;min-width:52px;padding:8px 10px;border:1px solid var(--red);color:var(--red);background:var(--paper2);font:600 13px var(--sans);letter-spacing:.08em}
+  .mobile-nav summary::-webkit-details-marker{display:none}
+  .mobile-nav[open] summary{background:var(--red);color:#fff}
+  .mobile-nav-panel{position:absolute;top:calc(100% + 12px);right:0;width:min(82vw,280px);max-height:calc(100dvh - 78px);overflow-y:auto;background:var(--paper2);color:var(--ink);border:1px solid var(--hair2);box-shadow:0 14px 35px rgba(18,18,18,.18);padding:5px 10px}
+  .mobile-nav-panel a{display:flex;align-items:center;min-height:44px;padding:10px 11px;border-bottom:1px solid var(--hair);font-size:14px;line-height:1.5;text-decoration:none;color:var(--ink)}
+  .mobile-nav-panel a:last-child{border-bottom:none}
+  .mobile-nav-panel a:hover,.mobile-nav-panel a[aria-current="page"]{color:var(--red);background:rgba(169,52,31,.06)}
+}
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -669,6 +683,17 @@ footer .fline a{color:#e8e2d2;text-decoration:underline;text-underline-offset:3p
   <nav aria-label="站内导航">
     <a href="index.html" class="here">首页</a><a href="zhiyuan.html">志远行空</a><a href="moyu.html">陌语</a><a href="chashi.html">查事与流程</a><a href="lianxi.html">联系</a><a class="navcta" href="lianxi.html">官方助理</a>
   </nav>
+  <details class="mobile-nav">
+    <summary>菜单</summary>
+    <div class="mobile-nav-panel" role="navigation" aria-label="手机站内导航">
+    <a href="index.html" aria-current="page">首页</a>
+    <a href="zhiyuan.html">志远行空</a>
+    <a href="moyu.html">陌语</a>
+    <a href="chashi.html">查事与流程</a>
+    <a href="lianxi.html">联系</a>
+    <a href="lianxi.html">官方助理</a>
+    </div>
+  </details>
 </header>
 
 <main id="main" tabindex="-1">
