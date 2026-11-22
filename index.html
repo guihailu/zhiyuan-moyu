@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#f5f0e4">
-<title>志远行空 · 陌语 Eunoia 官方站</title>
-<meta name="description" content="志远行空与陌语 Eunoia 的官方站：两个人是谁、各自能做什么、有哪些项目、办事每一步怎么走，都写在这里。">
+<title>志远行空官方站</title>
+<meta name="description" content="志远行空的官方站：他是谁、能做什么、有哪些项目、办事每一步怎么走，都写在这里。">
 <style>
-/* 官网成型版 · 共用样式（志远行空 × 陌语 Eunoia）
+/* 官网成型版 · 共用样式（志远行空）
    视觉系统 v2（2026-11-10 大进化首轮）：米白纸面＋墨黑大字＋朱砂印章＋金线
    细颗粒纸纹、印章分隔器、印章章节号、墨色页脚收尾带、首屏带金线＋底部融纸
    成型层：山水主视觉、墨色带、烛光图带、业务卡阵、事实栏、双路流程带 */
@@ -160,9 +160,8 @@ section.ch{padding:88px 0 6px}
 @media(max-width:820px){.duo{grid-template-columns:1fr}.duo::before{display:none}.person.right{border-top:1px solid var(--ink);margin-top:40px}}
 
 /* 业务总览（首页双列） */
-.overview2{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--ink);background:var(--paper2)}
+.overview2{display:grid;grid-template-columns:1fr;gap:0;border:1px solid var(--ink);background:var(--paper2)}
 .overview2 .col{padding:34px 36px 30px}
-.overview2 .col:first-child{border-right:1px solid var(--hair)}
 .overview2 .ch2{display:flex;align-items:baseline;gap:14px;border-bottom:1px solid var(--hair2);padding-bottom:14px;margin-bottom:10px}
 .overview2 .ch2 h3{font-family:var(--serif);font-weight:900;font-size:22px;letter-spacing:.1em}
 .overview2 .ch2 .ce{font-size:10.5px;letter-spacing:.3em;color:var(--faint);margin-left:auto}
@@ -171,7 +170,7 @@ section.ch{padding:88px 0 6px}
 .ov-row .k{font-family:var(--serif);font-weight:700;font-size:15.5px;min-width:104px;letter-spacing:.04em}
 .ov-row .d{font-size:13px;color:var(--ink2);line-height:1.85}
 .overview2 .more{margin-top:20px}
-@media(max-width:860px){.overview2{grid-template-columns:1fr}.overview2 .col:first-child{border-right:none;border-bottom:1px solid var(--hair)}}
+@media(max-width:860px){.overview2{grid-template-columns:1fr}}
 
 /* 墨色带（流程） */
 .band-ink{background:var(--ink);color:var(--paper);margin-top:110px;padding:84px 0 78px;position:relative}
@@ -179,7 +178,7 @@ section.ch{padding:88px 0 6px}
 .band-ink .ch-head{border-bottom-color:var(--gold)}
 .band-ink .ch-head h2{color:var(--paper)}
 .band-ink .ch-head .en{color:var(--gold2)}
-.paths{display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(30px,5vw,64px)}
+.paths{display:grid;grid-template-columns:1fr;gap:clamp(30px,5vw,64px)}
 @media(max-width:860px){.paths{grid-template-columns:1fr}}
 .path h3{font-family:var(--serif);font-weight:900;font-size:21px;letter-spacing:.1em;color:var(--paper)}
 .path h3 .who{color:var(--gold2);font-size:13px;letter-spacing:.3em;margin-left:12px}
@@ -211,7 +210,7 @@ section.ch{padding:88px 0 6px}
 .biz .bd{margin-top:9px;font-size:13.5px;line-height:1.95;color:var(--ink2)}
 .biz .bd b{color:var(--ink)}
 
-/* 项目条目（陌语页） */
+/* 项目条目 */
 .proj{border:1px solid var(--hair2);background:var(--paper2);padding:30px 32px 26px;margin-bottom:16px;position:relative}
 .proj::before{content:"";position:absolute;top:0;left:0;width:34px;height:3px;background:var(--red)}
 .proj .ph{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap}
@@ -415,7 +414,7 @@ html.night .hero .cta.solid{color:#fff}
 .band-ink::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:linear-gradient(180deg,rgba(26,45,54,0) 0%,rgba(26,45,54,.25) 15%,rgba(26,45,54,.55) 30%,rgba(26,45,54,.8) 45%,rgba(26,45,54,.86) 58%,rgba(26,45,54,.62) 72%,rgba(38,66,80,.35) 84%,rgba(38,66,80,.13) 93%,rgba(38,66,80,0) 100%)}
 .band-ink .wrap{position:relative;z-index:1}
 .pband .bgimg{-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 10%,#000 92%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0,#000 10%,#000 92%,transparent 100%)}
-/* 概念六：烛光带已移出首页（落地时放陌语页），相关规则删除 */
+/* 概念六：烛光带已移出首页，相关规则删除 */
 .seaband{width:100vw;margin-left:calc(50% - 50vw);margin-top:70px;line-height:0;position:relative;height:min(66vh,620px);overflow:hidden}
  /* 接缝审计 2026-11-12：补底边羽化，原先只羽化顶边；底边由 88% 放到 82% 起羽，夜里页脚更暗、淡色浪花化得更开 */
 /* 接缝审计 2026-11-12 07:xx 轮：海画底边原先羽化到纸白、再以硬直线接深靛页脚（日夜同症）。
@@ -549,7 +548,7 @@ footer nav a{display:inline-block;padding:13px 2px}
 .maprow .md{font-size:13.5px;line-height:1.9;color:var(--ink2)}
 .maprow .mk::after{content:" \2192";color:var(--red);font-size:14px}
 @media(max-width:760px){.maprow{flex-direction:column;gap:4px}.maprow .mk{min-width:0}}
-.triage{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.triage{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
 .tq{background:rgba(251,248,239,.88);border:1px solid var(--hair);border-top:3px solid var(--red);padding:22px 20px;transition:border-color .2s,background-color .2s}
 .tq:hover{border-color:var(--ink);background:rgba(245,240,228,.95)}
 .tq h3{font-family:var(--serif);font-size:19px;line-height:1.7;letter-spacing:.03em}
@@ -665,9 +664,9 @@ footer .fline a{color:#e8e2d2;text-decoration:underline;text-underline-offset:3p
 <div class="sealbg" aria-hidden="true">观自在菩萨行深般若波罗蜜多时照见五蕴皆空度一切苦厄舍利子色不异空空不异色色即是空空即是色受想行识亦复如是舍利子是诸法空相不生不灭不垢不净不增不减是故空中无色无受想行识无眼耳鼻舌身意无色声香味触法无眼界乃至无意识界无无明亦无无明尽乃至无老死亦无老死尽无苦集灭道无智亦无得以无所得故菩提萨埵依般若波罗蜜多故心无挂碍无挂碍故无有恐怖远离颠倒梦想究竟涅槃三世诸佛依般若波罗蜜多故得阿耨多罗三藐三菩提故知般若波罗蜜多是大神咒是大明咒是无上咒是无等等咒能除一切苦真实不虚故说般若波罗蜜多咒即说咒曰揭谛揭谛波罗揭谛波罗僧揭谛菩提萨婆诃观自在菩萨行深般若波罗蜜多时照见五蕴皆空度一切苦厄舍利子色不异空空不异色色即是空空即是色受想行识亦复如是舍利子是诸法空相不生不灭不垢不净不增不减是故空中无色无受想行识无眼耳鼻舌身意无色声香味触法无眼界乃至无意识界无无明亦无无明尽乃至无老死亦无老死尽无苦集灭道无智亦无得以无所得故菩提萨埵依般若波罗蜜多故心无挂碍无挂碍故无有恐怖远离颠倒梦想究竟涅槃三世诸佛依般若波罗蜜多故得阿耨多罗三藐三菩提故知般若波罗蜜多是大神咒是大明咒是无上咒是无等等咒能除一切苦真实不虚故说般若波罗蜜多咒即说咒曰揭谛揭谛波罗揭谛波罗僧揭谛菩提萨婆诃观自在菩萨行深般若波罗蜜多时照见五蕴皆空度一切苦厄舍利子色不异空空不异色色即是空空即是色受想行识亦复如是舍利子是诸法空相不生不灭不垢不净不增不减是故空中无色无受想行识无眼耳鼻舌身意无色声香味触法无眼界乃至无意识界无无明亦无无明尽乃至无老死亦无老死尽无苦集灭道无智亦无得以无所得故菩提萨埵依般若波罗蜜多故心无挂碍无挂碍故无有恐怖远离颠倒梦想究竟涅槃三世诸佛依般若波罗蜜多故得阿耨多罗三藐三菩提故知般若波罗蜜多是大神咒是大明咒是无上咒是无等等咒能除一切苦真实不虚故说般若波罗蜜多咒即说咒曰揭谛揭谛波罗揭谛波罗僧揭谛菩提萨婆诃观自在菩萨行深般若波罗蜜多时照见五蕴皆空度一切苦厄舍利子色不异空空不异色色即是空空即是色受想行识亦复如是舍利子是诸法空相不生不灭不垢不净不增不减是故空中无色无受想行识无眼耳鼻舌身意无色声香味触法无眼界乃至无意识界无无明亦无无明尽乃至无老死亦无老死尽无苦集灭道无智亦无得以无所得故菩提萨埵依般若波罗蜜多故心无挂碍无挂碍故无有恐怖远离颠倒梦想究竟涅槃三世诸佛依般若波罗蜜多故得阿耨多罗三藐三菩提故知般若波罗蜜多是大神咒是大明咒是无上咒是无等等咒能除一切苦真实不虚故说般若波罗蜜多咒即说咒曰揭谛揭谛波罗揭谛波罗僧揭谛菩提萨婆诃</div>
 
 <header class="mast">
-  <a class="brand" href="index.html"><span class="seal">志远<br>行空</span>志远行空 <b>×</b> 陌语 Eunoia</a>
+  <a class="brand" href="index.html"><span class="seal">志远<br>行空</span>志远行空</a>
   <nav aria-label="站内导航">
-    <a href="index.html" class="here">首页</a><a href="zhiyuan.html">志远行空</a><a href="moyu.html">陌语</a><a href="chashi.html">查事与流程</a><a href="lianxi.html">联系</a><a class="navcta" href="lianxi.html">官方助理</a>
+    <a href="index.html" class="here">首页</a><a href="zhiyuan.html">志远行空</a><a href="chashi.html">查事与流程</a><a href="lianxi.html">联系</a><a class="navcta" href="lianxi.html">官方助理</a>
   </nav>
 </header>
 
@@ -677,13 +676,13 @@ footer .fline a{color:#e8e2d2;text-decoration:underline;text-underline-offset:3p
 <div class="rays" aria-hidden="true"></div><div class="dust" id="dust" aria-hidden="true"></div><div class="stars" id="stars" aria-hidden="true"></div><div class="moonglow" aria-hidden="true"></div>
   
   <div class="inner">
-    <div class="kick"><span class="nb">志 远 行 空 ·</span> <span class="nb">陌 语</span> <span class="nb" lang="en">E U N O I A</span> <span class="nb">官 方 站</span></div>
-    <h1>一脉阴阳断困局<br>一脉金火涤灵台</h1>
+    <div class="kick"><span class="nb">志 远 行 空</span> <span class="nb">官 方 站</span></div>
+    <h1>一脉阴阳断困局<br>能诊能断能开方</h1>
     <p class="sub">事上的困局，心里的卡点——感情、事业、健康、家宅里说不清的反复，灵魂与能量上过不去的结，先在这里问清，再看怎么办。</p>
-    <p class="plainline">能办的事分两边：志远行空查事，先找出问题；陌语问诊疗愈，先问诊、后预约。第一步，都是联系官方助理。</p>
+    <p class="plainline">能办的事：志远行空查事，先找出问题，再给处置。第一步，联系官方助理。</p>
     <div class="acts">
       <a class="cta" href="lianxi.html">联系官方助理</a>
-      <a class="cta ghost" href="#teachers">两位老师介绍</a>
+      <a class="cta ghost" href="#teachers">老师介绍</a>
       <a class="cta ghost" href="#pain">看我遇到的问题</a>
     </div>
     <p class="humble"><span>有事相求，先怀敬意<br>把心放平，把问题说清，再往下看</span></p>
@@ -692,18 +691,18 @@ footer .fline a{color:#e8e2d2;text-decoration:underline;text-underline-offset:3p
 </div>
 
 <div class="verify"><p>先验真：官方渠道只有这三个——Telegram @zyxk888、WhatsApp +44 07706 981476、投稿邮箱 zyxk9999@gmail.com。<a href="lianxi.html">去联系页核对</a></p></div>
-<nav class="pagenav" aria-label="本页目录"><a href="#newcomer">第一次来</a><a href="#pain">遇到的问题</a><a href="#triage">哪种情况</a><a href="#teachers">两位老师</a><a href="#facts">数字与事实</a><a href="#overview">业务总览</a><a href="#paths">怎么办</a><a href="#faq">常见问题</a><a href="#safety">防骗声明</a></nav>
+<nav class="pagenav" aria-label="本页目录"><a href="#newcomer">第一次来</a><a href="#pain">遇到的问题</a><a href="#triage">哪种情况</a><a href="#teachers">老师介绍</a><a href="#facts">数字与事实</a><a href="#overview">业务总览</a><a href="#paths">怎么办</a><a href="#faq">常见问题</a><a href="#safety">防骗声明</a></nav>
 
 <div class="wrap">
 
     <div class="sec" id="newcomer"><div class="orn"><i></i><em></em><i></i></div><h2>第一次来，<wbr>先看哪里？</h2></div>
     <div class="maplist">
       <a class="maprow" href="#pain"><span class="mk">先对上你的情况</span><span class="md">同一件事总出问题、心里堵得慌、孩子和家里放心不下——看哪一句说的是你。</span></a>
-      <a class="maprow" href="#teachers"><span class="mk">再看两位老师是谁</span><span class="md">一位查事，一位问诊疗愈，下面都写清了。</span></a>
-      <a class="maprow" href="#overview"><span class="mk">然后看具体能办哪些事</span><span class="md">业务总览里逐项列明，志远行空传统业务在前，陌语天巫项目在后。</span></a>
-      <a class="maprow" href="#paths"><span class="mk">再看怎么办，分几步</span><span class="md">查事走六步，陌语的项目走另一条路，都从助理开始。</span></a>
+      <a class="maprow" href="#teachers"><span class="mk">再看老师是谁</span><span class="md">能查事、能处置、能讲学，下面都写清了。</span></a>
+      <a class="maprow" href="#overview"><span class="mk">然后看具体能办哪些事</span><span class="md">业务总览里逐项列明，查事、处置、静心与讲学都在里面。</span></a>
+      <a class="maprow" href="#paths"><span class="mk">再看怎么办，分几步</span><span class="md">查事走六步，从助理开始。</span></a>
       <a class="maprow" href="#safety"><span class="mk">随时回来验真</span><span class="md">官方渠道只有这三个，其他自称官方助理的，都不是我们的人。</span></a>
-      <a class="maprow" href="lianxi.html"><span class="mk">想开始了，联系官方助理</span><span class="md">所有咨询、问诊与对接，都从官方助理这里开始。</span></a>
+      <a class="maprow" href="lianxi.html"><span class="mk">想开始了，联系官方助理</span><span class="md">所有咨询与对接，都从官方助理这里开始。</span></a>
     </div>
 
     <div class="sec"><div class="orn"><i></i><em></em><i></i></div><h2>这是不是<wbr>你现在的情况？</h2></div>
@@ -717,19 +716,18 @@ footer .fline a{color:#e8e2d2;text-decoration:underline;text-underline-offset:3p
 
   <div class="creed">
     <div class="q">先把问题看清<wbr>才谈怎么解决</div>
-    <p class="m">志远行空查事，先找出问题，再给处置<br>陌语问诊疗愈，唤醒潜力，重塑边界<br>两位老师能做什么、规矩是什么、怎么联系，都在下面</p>
+    <p class="m">志远行空查事，先找出问题，再给处置<br>能做什么、规矩是什么、怎么联系，都在下面</p>
   </div>
 
     <div class="sec" id="triage"><div class="orn"><i></i><em></em><i></i></div><h2>你是哪一种情况？</h2></div>
   <div class="triage">
     <div class="tq"><h3>事上出了问题，<wbr>想先找出问题？</h3><p>查事，就是找出问题——先诊断，才谈得上开方。</p><p class="go"><a href="chashi.html">走六步，去查事与流程页</a></p></div>
-    <div class="tq"><h3>心里、能量上过不去，<wbr>想先问诊？</h3><p>陌语的项目，先问诊、后预约：问诊确认这个项目适不适合你，之后再预约进行。</p><p class="go"><a href="moyu.html">去看陌语的项目与问诊</a></p></div>
     <div class="tq"><h3>分不清<wbr>该走哪条路？</h3><p>先联系官方助理，把情况说清。不用写成长文，助理会接着问你。</p><p class="go"><a href="lianxi.html">联系官方助理</a></p></div>
   </div>
 
   
 <div class="lotusorn" aria-hidden="true"><svg width="132" height="36" viewBox="0 0 120 34"><g fill="none" stroke="#a8852f" stroke-width="1.6"><path d="M60 4 C66 12 66 20 60 28 C54 20 54 12 60 4Z"/><path d="M38 10 C48 12 54 18 56 27 C46 26 39 20 38 10Z"/><path d="M82 10 C72 12 66 18 64 27 C74 26 81 20 82 10Z"/><path d="M14 16 C24 15 32 20 36 26 C26 28 17 24 14 16Z"/><path d="M106 16 C96 15 88 20 84 26 C94 28 103 24 106 16Z"/></g></svg></div>
-<div class="sec"><div class="orn"><i></i><em></em><i></i></div><h2>他们是谁，<wbr>能办什么事？</h2></div>
+<div class="sec"><div class="orn"><i></i><em></em><i></i></div><h2>他是谁，<wbr>能办什么事？</h2></div>
 
   <div class="tcard" id="teachers">
     <div class="tphoto">
@@ -745,23 +743,9 @@ footer .fline a{color:#e8e2d2;text-decoration:underline;text-underline-offset:3p
     </div>
   </div>
 
-  <div class="tcard flip">
-    <div class="tphoto">
-      <div class="frame"><img src="moyu-official-portrait.png" alt="陌语官方照片" width="595" height="897" loading="lazy" decoding="async"></div>
-      <span class="ptag">明星疗愈师</span>
-    </div>
-    <div class="tbody">
-      <h3>陌语<span class="en" lang="en">EUNOIA</span></h3>
-      <p class="say"><span class="nb">能量温和，不代表能量弱。</span></p>
-      <div class="fld"><span class="fl">传承特质：</span><p>上古天巫传人，金火本源。做的是深层剥离、重塑与边界重建，是灵魂的能量破局者。</p></div>
-      <div class="fld"><span class="fl">能解的问题：</span><p>人生里反复出现的卡点、关系与情绪上的困境、能量与脉轮状态、孩子与家庭结构的问题。先问诊、后预约，以许愿蜡烛、能量阵蜡烛、佛眼智轮、能量净化与祈福等方式处理。</p></div>
-      <p class="cardgo"><a href="moyu.html">去陌语页，看项目与边界</a></p>
-    </div>
-  </div>
-
 <div class="sec" id="facts"><div class="orn"><i></i><em></em><i></i></div><h2>站上写了<wbr>多少事？</h2></div>
     <div class="factband">
-      <div class="fact"><div class="fn">18<small>项</small></div><p class="fd">业务总览里的项目：志远行空 8 项，陌语 10 项——许愿蜡烛分 PLUS 版与体验版两项。</p></div>
+      <div class="fact"><div class="fn">8<small>项</small></div><p class="fd">业务总览里的项目：查事、每日回卦、年命卦、超度、画符、风水祈福、晶光静心、直播讲学。</p></div>
       <div class="fact"><div class="fn">6<small>步</small></div><p class="fd">查事从咨询到安排查事，一步一步来。</p></div>
       <div class="fact"><div class="fn">30<small>余种</small></div><p class="fd">问题模板的类别，照着类别把问题逐项写清。</p></div>
       <div class="fact"><div class="fn">3<small>个</small></div><p class="fd">官方渠道：Telegram、WhatsApp、投稿邮箱。</p></div>
@@ -783,28 +767,14 @@ footer .fline a{color:#e8e2d2;text-decoration:underline;text-underline-offset:3p
         <a class="ov-row" href="zhiyuan.html"><span class="k">直播讲学</span><span class="tag">定期</span><span class="d">定期直播讲学与答疑</span></a>
         <div class="more"><a class="cta ghost" href="zhiyuan.html">逐条看说明</a></div>
       </div>
-      <div class="col">
-        <div class="ch2"><h3><span class="nb">陌语 ·</span><wbr> 天巫项目</h3><span class="ce" lang="en">ALL PROJECTS</span></div>
-        <a class="ov-row" href="moyu.html"><span class="k">许愿蜡烛 PLUS 版</span><span class="d">150g，含晶石与植物元素，按人单独配置</span></a>
-        <a class="ov-row" href="moyu.html"><span class="k">许愿蜡烛体验版</span><span class="d">约 75g，适合集中调整某一个方向</span></a>
-        <a class="ov-row" href="moyu.html"><span class="k">能量阵蜡烛</span><span class="d">一套 3 支，配植物、水晶与能量符纸，一支一支点</span></a>
-        <a class="ov-row" href="moyu.html"><span class="k">七灵根蜡烛</span><span class="tag">限量</span><span class="d">一套 7 支，对应七灵根，限量、无法量产</span></a>
-        <a class="ov-row" href="moyu.html"><span class="k">佛眼智轮</span><span class="tag">须审核</span><span class="tag">限时限量</span><span class="d">须有修行基础并提交审核，限时限量，等待期不可预计</span></a>
-        <a class="ov-row" href="moyu.html"><span class="k">能量净化</span><span class="tag">先问诊</span><span class="d">分 9 大类，每次只做 5 个小分项，选错是风险，先问诊定项</span></a>
-        <a class="ov-row" href="moyu.html"><span class="k">能量祈福</span><span class="d">加持作用，先说在前面：不保证百分百效果</span></a>
-        <a class="ov-row" href="moyu.html"><span class="k">灵能疗愈</span><span class="d">深层剥离、重塑与边界重建，针对事业、婚姻、职场、育儿上的长期卡点与内耗。</span></a>
-        <a class="ov-row" href="moyu.html"><span class="k">脉轮探查</span><span class="d">看清当前能量状态，并给出具体方案</span></a>
-        <a class="ov-row" href="moyu.html"><span class="k">青少年探查</span><span class="tag">7 周岁起</span><span class="d">家庭结构探查，7 周岁起接，9 岁及以上最顺畅</span></a>
-        <div class="more"><a class="cta ghost" href="moyu.html">逐项看清单与边界</a></div>
-      </div>
     </div>
   </section>
 </div>
 
-<!-- 双路流程（墨色带） -->
+<!-- 查事流程（墨色带） -->
 <div class="band-ink" id="paths">
   <div class="wrap">
-    <div class="ch-head"><span class="no">对接</span><h2>怎么办，<wbr>分几步？</h2><span class="en" lang="en">TWO PATHS</span></div>
+    <div class="ch-head"><span class="no">对接</span><h2>怎么办，<wbr>分几步？</h2><span class="en" lang="en">SIX STEPS</span></div>
     <div class="paths">
       <div class="path rv">
         <h3><span class="nb">查事，</span><wbr>走六步<span class="who">志 远 行 空</span></h3>
@@ -813,14 +783,6 @@ footer .fline a{color:#e8e2d2;text-decoration:underline;text-underline-offset:3p
           <span class="sh"><b>一</b>咨询</span><span class="sh"><b>二</b>问源溯源</span><span class="sh"><b>三</b>进群</span><span class="sh"><b>四</b>按模板填问</span><span class="sh"><b>五</b>助理老师确认</span><span class="sh hot"><b>六</b>安排查事</span>
         </div>
         <div class="pcta"><a class="cta light" href="chashi.html">看完整的六步流程</a></div>
-      </div>
-      <div class="path rv">
-        <h3>陌语的<span class="nb">项目，</span><wbr>走另一条路<span class="who">陌 语</span></h3>
-        <p class="pd">不用进群、不用填查事模板，而是先问诊、后预约：同样先联系官方助理说明情况，问诊确认这个项目适不适合你，之后再预约进行。入口都是官方助理，规矩各不相同。</p>
-        <div class="steps-h">
-          <span class="sh"><b>一</b>联系助理</span><span class="sh"><b>二</b>问诊确认</span><span class="sh"><b>三</b>预约进行</span>
-        </div>
-        <div class="pcta"><a class="cta light" href="moyu.html">看陌语的项目与问诊</a></div>
       </div>
     </div>
   </div>
@@ -847,7 +809,7 @@ footer .fline a{color:#e8e2d2;text-decoration:underline;text-underline-offset:3p
     </div>
     <h3 class="wl-h">哪三个渠道是真的？</h3>
     <div class="wl">
-      <div class="wl-row"><span class="wk">Telegram <a href="https://t.me/zyxk888" target="_blank" rel="noopener">@zyxk888</a></span><span class="wd">官方助理一对一。查事咨询、陌语问诊、进群对接，都从这里开始。</span></div>
+      <div class="wl-row"><span class="wk">Telegram <a href="https://t.me/zyxk888" target="_blank" rel="noopener">@zyxk888</a></span><span class="wd">官方助理一对一。查事咨询、进群对接，都从这里开始。</span></div>
       <div class="wl-row"><span class="wk">WhatsApp <a href="https://wa.me/4407706981476" target="_blank" rel="noopener">+44 07706 981476</a></span><span class="wd">官方助理一对一联系号（这是助理的联系号，不是群邀请链接）。用途同上，选顺手的渠道即可。</span></div>
       <div class="wl-row"><span class="wk">投稿邮箱 zyxk9999@gmail.com</span><span class="wd">故事投稿与资料投递专用。咨询与办事请走上面两个助理渠道，邮箱不办业务。</span></div>
     </div>
@@ -868,10 +830,10 @@ footer .fline a{color:#e8e2d2;text-decoration:underline;text-underline-offset:3p
 </main>
 <footer>
   <div class="wrap">
-    <div class="fbrand"><span class="seal">志远<br>行空</span>志远行空 · 陌语 Eunoia 官方站</div>
-    <nav aria-label="页脚导航"><a href="index.html">首页</a><a href="zhiyuan.html">志远行空</a><a href="moyu.html">陌语</a><a href="chashi.html">查事与流程</a><a href="lianxi.html">联系</a></nav>
+    <div class="fbrand"><span class="seal">志远<br>行空</span>志远行空官方站</div>
+    <nav aria-label="页脚导航"><a href="index.html">首页</a><a href="zhiyuan.html">志远行空</a><a href="chashi.html">查事与流程</a><a href="lianxi.html">联系</a></nav>
     <p class="fline">官方助理只有两个一对一渠道：Telegram <a href="https://t.me/zyxk888" target="_blank" rel="noopener">@zyxk888</a>、WhatsApp <a href="https://wa.me/4407706981476" target="_blank" rel="noopener">+44 07706 981476</a>；投稿用 zyxk9999@gmail.com。其他自称官方助理的，都不是我们的人。</p>
-    <div class="fin"><span>志远行空 · 陌语 Eunoia</span><span>认准官方助理</span></div>
+    <div class="fin"><span>志远行空</span><span>认准官方助理</span></div>
   </div>
 </footer>
 

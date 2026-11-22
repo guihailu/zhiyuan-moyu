@@ -1,4 +1,4 @@
-/* 官网成型版 · 共用样式（志远行空 × 陌语 Eunoia）
+/* 官网成型版 · 共用样式（志远行空）
    视觉系统 v2（2026-11-10 大进化首轮）：米白纸面＋墨黑大字＋朱砂印章＋金线
    细颗粒纸纹、印章分隔器、印章章节号、墨色页脚收尾带、首屏带金线＋底部融纸
    成型层：山水主视觉、墨色带、烛光图带、业务卡阵、事实栏、双路流程带 */
@@ -202,7 +202,7 @@ section.ch{padding:88px 0 6px}
 .biz .bd{margin-top:9px;font-size:13.5px;line-height:1.95;color:var(--ink2)}
 .biz .bd b{color:var(--ink)}
 
-/* 项目条目（陌语页） */
+/* 项目条目 */
 .proj{border:1px solid var(--hair2);background:var(--paper2);padding:30px 32px 26px;margin-bottom:16px;position:relative;transition:border-color .2s,background-color .2s}
 .proj:hover{border-color:var(--ink);background:var(--paper)}
 .proj::before{content:"";position:absolute;top:0;left:0;width:34px;height:3px;background:var(--red)}
@@ -388,7 +388,7 @@ h1,h2,h3,.kick,.creed .q,.divider .cap,.statement .t,.notice .t,.tpl .tt,.biz .b
    实测基线：390/360px CDP 实拍五页（.rv 滚动显现后取像）：横向溢出 0；实锤缺陷 4 项——
    ①内页顶栏品牌名折两行（mast 高 75px，首页因内嵌 nowrap＋900 断点收窄为单行 54px）；
    ②内页 .ch-head .en 在右侧挤成 88px 竖条（WHAT HE DOES／HER LIMITS／SIX STEPS 均两行竖排，首页同规则已在内嵌样式中修好）；
-   ③内页首屏导语末行落在山水带遮罩淡出区；④陌语页烛光带白字压亮烛身偏虚（用户 2026-11-14 截图所指，待眼判的对比度样稿同向，本轮只做 ≤640px 移动端加深）。
+   ③内页首屏导语末行落在山水带遮罩淡出区；④烛光带白字压亮烛身偏虚（用户 2026-11-14 截图所指，待眼判的对比度样稿同向，本轮只做 ≤640px 移动端加深）。
    其余为节奏收紧：分区留白、卡片间距、点按区向 44px 靠。排版同步定版（balance＋strict＋keep-all）一律保留，改后重跑三宽量测。 */
 .mast .brand{white-space:nowrap}
 @media(max-width:900px){.mast{padding:10px 14px}.mast .brand{font-size:13px;letter-spacing:.12em;gap:8px}.mast .seal{width:30px;height:30px;font-size:10px}.mast nav a.navcta{padding:14px 14px;margin:-8px 0}}
@@ -415,7 +415,7 @@ h1,h2,h3,.kick,.creed .q,.divider .cap,.statement .t,.notice .t,.tpl .tt,.biz .b
 /* ===== 人物页改版（2026-11-16 每日大进化轮次）：业务分组＋肖像拱形＋称号牌＋标签提亮 ===== */
 /* 对标：draft/对标逆向_人物页改版_20261116.md（Revamp／Coachful／Dahlia／Hope Gaston／Cactal，2026-11-16 当日实看）。
    只动两人物页：.biz-group/.rule-line/.avatar-note/.pg-person 为本轮新增；.frame/.figcap/.byline/.proj .fit .fl/.imgband
-   在 style.css 内只被 zhiyuan.html 与 moyu.html 引用（index.html 自包含、不链 style.css，首页不受影响）。
+   在 style.css 内只被 zhiyuan.html 引用（index.html 自包含、不链 style.css，首页不受影响）。
    文案零改：组标题只用页内已有词（诊断／处置／静心与讲学／蜡烛／净化·祈福·疗愈／探查），计数由原文计得；
    规则句逐字保留一次（清单段首），单项卡内重复行删除；CTA 均为既有文案原样复用。
    未做：S5 段首小标题（须移句或加新词，越过文案零改线）；S6 折叠收纳（违本站「一次写清」，2026-11-14 已否决手风琴）；
@@ -441,7 +441,7 @@ h1,h2,h3,.kick,.creed .q,.divider .cap,.statement .t,.notice .t,.tpl .tt,.biz .b
 /* ===== 动效与交互轮（2026-11-18 每日大进化轮次）：回顶＋本页目录（吸顶细线／显现收敛／减动效总闸见上） ===== */
 /* 对标：draft/对标逆向_动效与交互_20261118.md（GOV.UK／Apple／Stripe／MDN／Notion，2026-11-18 当日实开）。
    本轮只动交互层：文案零改（新增可见字只限「回顶」与本页目录锚点标签，标签全部取自各页已有章节标题）；
-   背景冻结（通画／心经／光一律不动）；冻结区（首页首屏／痛点三卡／理念引言／两位老师双卡）不动；
+   背景冻结（通画／心经／光一律不动）；冻结区（首页首屏／痛点三卡／理念引言／老师卡）不动；
    动效预算：过渡 200ms、显现 12px／0.6s；已发版的 .biz／.chan-card 上浮悬停维持原样（用户已见，不擅改），
    本轮新增卡片悬停只做边框档、不做上浮。 */
 /* 回顶（2026-11-18 动效与交互轮）：纸面小方牌，滚过约一屏半后淡入；近页脚 120px 内收起，不遮页脚链接；无 JS 时不出现 */
